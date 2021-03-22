@@ -52,6 +52,9 @@ body {
   font-style: italic;
   font-size: 15px;
 }
+.about-content .main-info p{
+    font-size:13px;
+}
 
 .showcase {
   width: 100%;
