@@ -251,32 +251,27 @@ a {
 }
 /* end of cv container */
 .sidebar-column .sidebar-footer {
-  position: absolute;
+  position: fixed;
   left: 0px;
-  bottom: 0px;
+  bottom: 120px;
   background: var(--custom-dark-color);
-  width: 250px !important;
-  height: 60px;
+  width: 50px !important;
+  height: auto;
   padding: 13px;
-  display: flex;
-  /* align-items: center; */
-  justify-content: center;
-  overflow: hidden;
+  display: block;
+  box-shadow: 0px 0px 3px #000;
 }
 
 .sidebar-column .sidebar-footer .socials {
-  display: flex;
+  display: block;
   padding: 3px;
   color: #fff;
   position: relative;
   bottom: 10px;
-  height: 40px;
-  margin: 0px auto;
   align-items: center;
   justify-content: center;
 }
 .sidebar-column .sidebar-footer .socials a {
-  padding: 10px;
   color: #ccc;
   text-decoration: none;
 }
