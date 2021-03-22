@@ -1,0 +1,20 @@
+============Task Completed===============================
+
+
+======================== UI COMPONENT ==============================
+
+--✅✅ Navigation Bar
+
+--✅✅ Two left & right sideBar
+
+--❌❌ Banner Section.
+
+--❌❌ Services Section
+
+--❌❌ Portfolio Section
+
+--❌❌ Contact Info Section
+
+--❌❌ Footer Section
+
+=======================Functionlaities ============================

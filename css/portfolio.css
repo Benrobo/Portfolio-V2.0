@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap");
+@import url(./variables.css);
+
+html {
+  scroll-behavior: smooth !important;
+}
+body {
+  background: var(--average-dark-color) !important;
+  color: #fff;
+  font-family: "Raleway", sans-serif !important;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+
+/* portfolio section */
+.main-column .port-portfolio-area  .portfolio-cont{
+  min-width:100%;
+  height:auto;
+  display:flex;
+  flex-wrap:wrap;
+  padding:15px;
+}
+
+.main-column .port-portfolio-area  .portfolio-cont .box{
+  position:relative;
+  width:300px;
+  height:auto;
+  box-shadow: var(--light-shadow);
+  background:#2c2c36;
+  border-radius: 5px;
+  overflow: hidden;
+  margin:12px auto;
+}
+.main-column .port-portfolio-area  .portfolio-cont .box .empty{
+  position:absolute;
+  right:0px;
+  width:290px;
+}
+.main-column .port-portfolio-area  .portfolio-cont .box:hover{
+  transition:.1s;
+   box-shadow: -3px -3px 20px #16161d;
+   border-bottom:2px solid #ffc107;
+}
+.main-column .port-portfolio-area  .portfolio-cont .box .img{
+  width:100%;
+  height:200px;
+}
+.main-column .port-portfolio-area  .portfolio-cont .box .date-cont{
+  width:300px;
+  height:40px;
+  padding:12px;
+}
+.main-column .port-portfolio-area  .portfolio-cont .box .date-cont .date{
+  padding:5px 15px;
+  background:#23232d;
+  border-radius:30px;
+  color:#ccc;
+}
+.main-column .port-portfolio-area  .portfolio-cont .box .title-cont{
+  padding:12px;
+  height: 40px;
+}
+.main-column .port-portfolio-area  .portfolio-cont .box .title-cont .title{
+  font-weight:100;
+
+}
+.main-column .port-portfolio-area  .portfolio-cont .box .footer{
+  padding:12px;
+}
+.main-column .port-portfolio-area  .portfolio-cont .box .footer a{
+  color:#ffc107;
+}
+.main-column .port-portfolio-area  .portfolio-cont .box .footer a:hover{
+  transition: .3s;
+  padding-left:5px;
+}
+.main-column .port-portfolio-area .portfolio-main .more-info{
+  padding:10px 12px;
+  border:2px solid #ffc107;
+  border-radius: 30px;
+  color:#fff;
+
+}
+.main-column .port-portfolio-area .portfolio-main .more-info:hover{
+  background:#000;
+}
+
+/* footer */
+.main-column .port-portfolio-area .footer{
+  width:95%;
+  height:auto;
+  overflow:hidden;
+    padding:13px;
+  font-size:12px;
+  background: #2c2c36;
+  color:#ccc;
+  font-weight:200;
+}

@@ -1,0 +1,219 @@
+/* if the viewport is equal to 340px or less than that */
+/* @media (max-width: 1440px) {
+  body {
+    background: red !important;
+  }
+} */
+
+/* ipad pro */
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+  body {
+    /* background: hotpink !important; */
+  }
+
+  .container-column {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(100px, auto);
+    grid-template-areas: "main";
+    padding: 0px;
+  }
+  .sidebar-column {
+    width: 0px;
+    height: 100vh;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 100;
+    overflow: hidden;
+    /* display:none; */
+  }
+  .sidebar-column .sidebar-main {
+    height: 72vh;
+  }
+  .sidebar-column .sidebar-footer {
+    height:30vh;
+}
+  .sidebar-column .sidebar-main .content{
+    height:40vh;
+  }
+
+  .main-column .header .overlay .content {
+    top: 60px;
+    height: 50vh;
+    text-align: center;
+  }
+  .main-column .header .overlay .content .img-cont {
+    display: none;
+  }
+  /* right navbar */
+  .right-sidebar-column {
+    width: 0px;
+    z-index: 1;
+    /* display:none; */
+  }
+  /* top navbar column */
+  .top-navbar-column {
+    display: block;
+  }
+
+  .main-column {
+    top: 50px;
+  }
+  .main-column .header .overlay .content {
+    width: 70%;
+    height: 40vh;
+  }
+  .main-column .portfolio-area .services .content .services-box-cont .box {
+    width: 350px;
+  }
+  .main-column .portfolio-area .recomendations .rec-card {
+    width: 350px;
+    margin: 0px;
+  }
+  .main-column .portfolio-area .services .content .services-box-cont .box {
+    width: 45%;
+    margin: 10px;
+  }
+  
+  .right-sidebar-column .burger {
+    display: none;
+  }
+  
+    /* about page */
+    .about-content {
+    grid-template-columns: 1fr;
+    grid-template-areas: "img" "body";
+  }
+  .about-content .img{
+    width:100%;
+    margin:0px auto;
+    display:flex;
+    justify-content:center;
+}
+ .about-content .img img{
+   margin:0px auto;
+ }
+}
+
+/* iphone 8,6,7,+ */
+@media only screen and (min-width: 320px) and (max-width: 700px) {
+  body {
+    /* background: hotpink !important; */
+  }
+
+  .container-column {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(100px, auto);
+    grid-template-areas: "main";
+    padding: 0px;
+  }
+  .sidebar-column {
+    width: 0px;
+    height: 100vh;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 100;
+    overflow: hidden;
+    /* display:none; */
+  }
+  .sidebar-column .sidebar-main {
+    height: 55vh;
+  }
+.sidebar-column .sidebar-footer {
+    height:8vh;
+}
+  .sidebar-column .sidebar-main .content{
+    height:50vh;
+  }
+
+  /* right navbar */
+  .right-sidebar-column {
+    width: 0px;
+    z-index: 1;
+    /* display:none; */
+  }
+  /* top navbar column */
+  .top-navbar-column {
+    display: block;
+  }
+
+  .main-column {
+    top: 50px;
+  }
+  .main-column .header .overlay .content {
+    text-align: center;
+    width: 100%;
+    height: 45vh;
+  }
+  .main-column .header .overlay .content .img-cont {
+    display: none;
+  }
+  .main-column .header .overlay .content .txt h1 {
+    /* width: 300px; */
+    font-size: 30px;
+    font-family: "Roboto", sans-serif;
+  }
+  .right-sidebar-column .burger {
+    display: none;
+  }
+  .sidebar-column .sidebar-footer {
+    left: 0px;
+  }
+  .main-column .portfolio-area .recomendations .rec-card {
+    width: 100%;
+    margin: 0px;
+  }
+  .main-column .portfolio-area .portfolio-cont .box .overlay {
+    width: 100%;
+  }
+  .main-column .portfolio-area .services .content .services-box-cont .box {
+    width: 100%;
+  }
+
+  /* portfolio page */
+  .main-column .port-portfolio-area .portfolio-cont .box {
+    width: 100%;
+  }
+
+  /* about page */
+  .about-content {
+    grid-template-columns: 1fr;
+    grid-template-areas: "img" "body";
+  }
+  .about-content .img{
+    width:100%;
+}
+.showcase .txt{
+  width:100%;
+  top:50% !important;
+  margin-top:0px;
+}
+.showcase .img{
+    display:none;
+}
+}
+
+@media only screen and (max-width: 1440px) and (min-width: 1280px) {
+  .sidebar-column .first-top-box .top-head {
+    display: none;
+  }
+  .sidebar-column .sidebar-main .content {
+    height: 42vh;
+  }
+  .sidebar-column .sidebar-main {
+    height: 65vh;
+  }
+    .sidebar-column .sidebar-main .sidebar-footer {
+    height: 20vh;
+  }
+  .main-column .portfolio-area .services .content .services-box-cont .box {
+    width: 300px;
+  }
+}

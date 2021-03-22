@@ -1,0 +1,15 @@
+:root {
+ --gradient: linear-gradient(to left bottom,#dc143b, #dd0d37);
+ --blue: #4679bd;
+ --grey: #504d4d;
+ --orange: #fec107;
+ --dark: #000;
+ --shadow: 0px 0px 5px #00000083;
+ --shadow-btn:0px 0px 2px #dc143b; 
+ --border: #dc143b;
+ --average-dark-color:#20202a;
+ --custom-dark-color:#23232d;
+ --border-orenge:#ffc107;
+ /* headind styles */
+ --heading: 25px;
+}
