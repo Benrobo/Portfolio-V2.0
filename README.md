@@ -3,6 +3,16 @@ Complete Portfolio Website with Bootstrap - HTML/CSS In this project, we are goi
 
 ## To execute this project just open index.html file in the browser.
 
-- [*] Navbar Conmpleted
-- [*] Navbar Conmpleted
-- [] Navbar Conmpleted
+- ✅✅ Navigation Bar
+
+- ✅✅ Two left & right sideBar
+
+- ✅✅ Banner Section.
+
+- ✅✅ Services Section
+
+- ✅✅ Portfolio Section
+
+- ✅✅ Contact Info Section
+
+- ✅✅ Footer Section
