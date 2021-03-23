@@ -254,7 +254,7 @@ a {
   position: fixed;
   left: 0px;
   bottom: 120px;
-  background: var(--custom-dark-color);
+  background: rgba(0,0,0,.5);
   width: 50px !important;
   height: auto;
   padding: 13px;
