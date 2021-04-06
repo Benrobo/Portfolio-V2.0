@@ -1,4 +1,8 @@
 
+window.addEventListener("DOMContentLoaded", (e)=>{
+ fetchProj()
+})
+
 function fetchProj(){
     let procont = document.querySelector(".proj-count");
     let url = "https://api.github.com/users/benrobo";
@@ -15,5 +19,3 @@ function fetchProj(){
         });
     }) 
 }
-
-fetchProj()
