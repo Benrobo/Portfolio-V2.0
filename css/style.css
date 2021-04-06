@@ -252,7 +252,7 @@ a {
 /* end of cv container */
 .sidebar-column .sidebar-footer {
   position: fixed;
-  left: 0px;
+  top: 70px;
   bottom: 120px;
   background: rgba(0,0,0,.5);
   width: 50px !important;
@@ -271,6 +271,8 @@ a {
   align-items: center;
   justify-content: center;
 }
+
+
 .sidebar-column .sidebar-footer .socials a {
   color: #ccc;
   text-decoration: none;
