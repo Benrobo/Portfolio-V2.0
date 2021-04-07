@@ -105,6 +105,7 @@ a {
   border-radius: 30px;
 }
 
+<<<<<<< HEAD
 .container-column .sidebar-footer .socials {
   display: flex;
   flex-direction: column;
@@ -116,6 +117,67 @@ a {
 }
 .container-column .sidebar-footer .socials a {
   padding: 10px;
+=======
+.sidebar-column hr {
+  background-color: #777;
+  margin: 0px auto;
+  width: 200px;
+}
+/* skill container */
+.sidebar-column .sidebar-main .content .skill-cont {
+  width: 250px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 12px;
+}
+
+.sidebar-column .sidebar-main .content .skill-cont img {
+  margin: 10px;
+}
+
+/* cv container */
+.sidebar-column .first-top-box .cv-cont {
+  font-size: 13px;
+  margin: 0px auto;
+  padding: 15px;
+  text-align: start;
+}
+.sidebar-column .first-top-box .cv-cont a {
+  color: #ccc;
+  padding: 12px;
+}
+.sidebar-column .first-top-box .cv-cont a:hover {
+  color: #fff;
+  font-weight: 800;
+}
+/* end of cv container */
+.sidebar-column .sidebar-footer {
+  position: fixed;
+  top: 70px;
+  bottom: 120px;
+  background: rgba(0,0,0,.5);
+  width: 50px !important;
+  height: auto;
+  padding: 13px;
+  display: block;
+  box-shadow: 0px 0px 3px #000;
+}
+
+.sidebar-column .sidebar-footer .socials {
+  display: block;
+  padding: 3px;
+  color: #fff;
+  position: relative;
+  bottom: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.sidebar-column .sidebar-footer .socials a {
+>>>>>>> a511276f27c968d98408680f44b2cc47ae7e8af5
   color: #ccc;
   text-decoration: none;
   font-size: 15px !important;

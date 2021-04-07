@@ -17,6 +17,12 @@ body {
 }
 
 /* aboutpage section */
+.header{
+  height:30vh !important;
+}
+.header .overlay{
+  height: 100vh !important;
+}
 
 .about-area {
   width: 100%;

@@ -7,14 +7,14 @@
 
 --✅✅ Two left & right sideBar
 
---❌❌ Banner Section.
+--✅✅ Banner Section.
 
---❌❌ Services Section
+--✅✅ Services Section
 
---❌❌ Portfolio Section
+--✅✅ Portfolio Section
 
---❌❌ Contact Info Section
+--✅✅ Contact Info Section
 
---❌❌ Footer Section
+--✅✅ Footer Section
 
 =======================Functionlaities ============================

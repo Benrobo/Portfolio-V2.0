@@ -80,6 +80,38 @@
     /* background: hotpink !important; */
   }
 
+<<<<<<< HEAD
+=======
+  .container-column {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(100px, auto);
+    grid-template-areas: "main";
+    padding: 0px;
+  }
+  .sidebar-column {
+    width: 0px;
+    height: 100vh;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 100;
+    overflow: hidden;
+    /* display:none; */
+  }
+  .sidebar-column .sidebar-main {
+    height: 55vh;
+  }
+.sidebar-column .sidebar-footer {
+    height:25vh;
+}
+  .sidebar-column .sidebar-main .content{
+    height:50vh;
+  }
+
+>>>>>>> a511276f27c968d98408680f44b2cc47ae7e8af5
   /* right navbar */
   .right-sidebar-column {
     width: 0px;
@@ -144,6 +176,21 @@
 }
 
 @media only screen and (max-width: 1440px) and (min-width: 1280px) {
+<<<<<<< HEAD
+=======
+  .sidebar-column .first-top-box .top-head {
+    display: none;
+  }
+  .sidebar-column .sidebar-main .content {
+    height: 42vh;
+  }
+  .sidebar-column .sidebar-main {
+    height: 65vh;
+  }
+    .sidebar-column .sidebar-main .sidebar-footer {
+    height: 24vh;
+  }
+>>>>>>> a511276f27c968d98408680f44b2cc47ae7e8af5
   .main-column .portfolio-area .services .content .services-box-cont .box {
     width: 300px;
   }
