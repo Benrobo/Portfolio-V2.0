@@ -1,0 +1,79 @@
+@import url(./style.css);
+@import url(./variables.css);
+@import url(./responsive.css);
+/* contact info */
+.container-column .contact-cont{
+    width:100%;
+    height:auto;
+    position:relative;
+    top:150px;
+    color:#fff;
+    text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  
+  .container-column .contact-cont .form-cont{
+    width:100%;
+    margin:0px auto;
+  }
+  
+  .container-column .contact-cont .form-cont form{
+    width:90%;
+    padding:15px;
+    background:#2c2c36;
+  }
+  .container-column .contact-cont .form-cont form .input-groups{
+    display:flex;
+    margin:5px;
+    padding:10px;
+  }
+  .container-column .contact-cont .form-cont form .input-groups .left-icon{
+    padding:8px 12px;
+    background: #16161d;
+    width:50px;
+  }
+  .container-column .contact-cont .form-cont form .input-groups .inputs{
+    width:100%;
+    border:0px;
+    outline:none;
+    background: #252531;
+    text-indent: 20px;
+    color:#ccc;
+    font-size:12px;
+  }
+  .container-column .contact-cont .form-cont form .input-groups .inputs::placeholder{
+    /* padding:12px; */
+    font-size:12px;
+  }
+  .container-column .contact-cont .form-cont form .input-groups:hover .left-icon{
+    background:#ffc107;
+    color:#000;
+  }
+  .container-column .contact-cont .form-cont form .input-groups textarea{
+    height:120px;
+    resize: none;
+    text-indent: 25px;
+  }
+  .container-column .contact-cont .form-cont form .input-groups textarea::placeholder{
+    padding:5px;
+    text-indent: 20px;
+  }
+  
+  .container-column .contact-cont .form-cont form .submit-btn{
+    padding:10px 12px;
+    background:#ffc107;
+    color:#000;
+    border:none;
+    outline:none;
+    font-size:12px;
+    position:relative;
+  }
+  .container-column .contact-cont .form-cont form .submit-btn:hover{
+    transition: .4s;
+    left:2px;
+    top:1px;
+  }
