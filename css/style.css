@@ -427,8 +427,15 @@ a {
   padding:15px 15px;
   box-shadow: var(--light-shadow);
   background:#2c2c36;
-  margin:15px;
-  margin:15px auto;
+ margin:15px auto;
+}
+.main-column .portfolio-area .services .content .services-box-cont .box .icon{
+  text-align: center;
+  font-size: 40px;
+  color: var(--yellow);
+}
+.main-column .portfolio-area .services .content .services-box-cont .box p{
+  text-align: center;
 }
 .main-column .portfolio-area .services .content .services-box-cont .box:hover{
   transition:.3s;
@@ -440,16 +447,7 @@ a {
   font-size:14px;
   color:#777;
 }
-.main-column .portfolio-area .services .content .services-box-cont .box .footer a{
-  font-weight:900;
-  color:#ffc107;
-  font-size:12px !important;
-}
-.main-column .portfolio-area .services .content .services-box-cont .box .footer a:hover{
-  margin-left:4px;
-  transition: .5s;
-  animation:move;
-}
+
 @keyframes move{
   0%{
     margin-left:4px;
