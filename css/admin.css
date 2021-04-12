@@ -68,3 +68,25 @@ label small {
   outline: none !important;
   margin: 12px auto;
 }
+
+.admin-info .main-info{
+  display: flex;
+  width: 100%;
+  padding: 12px;
+}
+
+.admin-info .main-info .img-cont{
+  float: left;
+  width: 300px;
+}
+.admin-info .main-info .img-cont .img{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #000;
+  background-size: cover;
+  background-position: center;
+}
+.admin-info .main-info .info{
+  float: right;
+}
