@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap");
 @import url("variables.css");
 
@@ -105,32 +105,26 @@ label small {
   position: fixed;
   top:0px;
   left:0px;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   background-color: rgba(0,0,0,.9);
   z-index: 1000;
 }
-.center {
-  margin-top: 50px;
-}
 
-.modal-header {
-  padding-bottom: 5px;
+.modal-cont .modal-card{
+  padding: 12px;
+  background:  var(--average-dark-color) !important;
+  color: #fff;
 }
-
-.modal-footer {
-  padding: 0;
+.modal-cont .modal-card .head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-
-.modal-footer .btn-group button {
-  height: 40px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border: none;
-  border-right: 1px solid #ddd;
+.modal-cont .modal-card .head .closebtn{
+  cursor: pointer;
 }
-
-.modal-footer .btn-group:last-child > button {
-  border-right: 0;
+.modal-cont .modal-card .body label{
+  font-weight: 100 !important;
 }
