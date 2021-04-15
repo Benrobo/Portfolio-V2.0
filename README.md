@@ -16,3 +16,9 @@ Complete Portfolio Website with Bootstrap - HTML/CSS In this project, we are goi
 - ✅✅ Contact Info Section
 
 - ✅✅ Footer Section
+
+- ✅✅ Admin Page Section
+
+- ✅✅ Feedback Form Section
+
+- ✅✅ Portfolio Post Section
