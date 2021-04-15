@@ -96,6 +96,10 @@
  .about-content .img img{
    margin:0px auto;
  }
+ .login-cont form {
+  padding: 12px;
+  width: 400px;
+}
 }
 
 /* iphone 8,6,7,+ */
@@ -197,6 +201,10 @@
 }
 .showcase .img{
     display:none;
+}
+.login-cont form {
+  padding: 10px;
+  width: 350px;
 }
 }
 
