@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap");
 @import url("variables.css");
 
@@ -37,4 +37,10 @@ body {
 .login-cont form .footer {
   display: flex;
   justify-content: space-between;
+}
+
+.login-cont form .footer .btn-primary{
+  background: #ffff01;
+  color: #000;
+  border: none;
 }
