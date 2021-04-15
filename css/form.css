@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap");
+@import url("variables.css");
+
+html {
+  scroll-behavior: smooth !important;
+}
+body {
+  background: var(--average-dark-color) !important;
+  color: #fff !important;
+  font-family: "Raleway", sans-serif !important;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  scroll-behavior: smooth !important;
+}
+
+.header {
+  padding: 7px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+}
+
+.login-cont {
+  margin: 20px auto;
+  padding: 12px;
+}
+.login-cont form {
+  background: var(--average-dark-color);
+  box-shadow: 0px 0px 3px #000;
+  padding: 12px;
+  width: 400px;
+  margin: 0px auto;
+}
+
+.login-cont form .footer {
+  display: flex;
+  justify-content: space-between;
+}
