@@ -1,64 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="This is my portfolio homepage.">
-  <meta name="description" content="created by: benrobo">
-  <meta name="robots" content="index, follow">
-  <title>Admin Section</title>
-  <link rel="icon" href="../img/profile/avatar.jpeg">
-  <!-- custom css file -->
-  <link rel="stylesheet" href="../css/admin.css" />
+require("logic/dbh/db.php");
 
-  <!-- bootstrap css -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+$conn = connectDb();
 
-  <!--  responsive-->
-  <link rel="stylesheet" href="../css/responsive.css" />
+if(isset($_COOKIE['EML']) && isset($_COOKIE['UPWD'])){
+  echo "CSDCSDCDC";
+}else{
+  echo "sdcsdcscsdc";
+}
 
-  <!--fontawesome icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-  <!-- icons -->
-  <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-</head>
-
-<body>
+?>
+<?php require("inc/head.php");?>
   <div class="amin-col">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Dashboard</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="addpost.html">Add Post</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                More
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li class="p-4">benrobo</li>
-                <li><a class="ml-4 btn btn-danger" href="#">Logout</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    
+  <?php require("inc/nav.php");?>
 
     <div class="main-cont">
       <div class="card-cont">
@@ -199,24 +155,4 @@
     </div>
   </div>
 
-  <!-- JavaScript Bundle with Popper -->
-  <script src="../js/jquery.3.4.1.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script>
-    function handleModal(){
-      let btnmodal = document.querySelector(".modal-btn");
-      let closeModal = document.querySelector(".closebtn");
-      let modalcont = document.querySelector(".modal-cont");
-
-      btnmodal.onclick = ()=>{
-        modalcont.style.display = "flex";
-      }
-      closeModal.onclick = ()=>{
-        modalcont.style.display = "none";
-      }
-    }
-    handleModal()
-  </script>
-</body>
-
-</html>
+<?php require("inc/footer.php");?>

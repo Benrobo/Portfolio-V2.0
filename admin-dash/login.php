@@ -40,8 +40,12 @@
     </div>
     <div class="container">
         <div class="login-cont">
+            
             <form action="logic/auth.php" method="post" class="form-group">
-               <p>Login</p>
+                <p>Login</p>
+                <?php  if(isset($_GET['err'])){?>
+                    <div class="alert alert-danger"><?php echo $_GET['err'];?></div>
+                <?php }?>
                <br>
                <label>Email</label>
                <input type="email" name="email" class="form-control mt-1">
