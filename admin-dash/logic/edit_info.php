@@ -61,7 +61,7 @@ if(isset($_POST['edit_btn'])){
     
 }
 else{
-    header("location: ../admin.php");
+    header("location: ../index.php");
     die;
 }
 
