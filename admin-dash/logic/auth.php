@@ -2,8 +2,6 @@
 
 require("dbh/db.php");
 
-$conn = connectDb();
-
 if(isset($_POST['loginbtn'])){
     
     // authenticate user
@@ -49,8 +47,6 @@ if(isset($_POST['loginbtn'])){
     header("location: ../../");
     die;
 }
-
-
 
 
 ?>

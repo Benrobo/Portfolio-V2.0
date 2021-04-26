@@ -28,6 +28,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin_profile`
 --
 
+
+
 CREATE TABLE `admin_profile` (
   `id` int(6) UNSIGNED NOT NULL,
   `username` text NOT NULL,

@@ -2,12 +2,21 @@
 
 require("logic/dbh/db.php");
 
-$conn = connectDb();
-
+// print_r($_COOKIE);
 if(isset($_COOKIE['EML']) && isset($_COOKIE['UPWD'])){
-  echo "CSDCSDCDC";
+
+  $userEmail = $_COOKIE['EML'];
+  $query = mysqli_query($conn, "SELECT * FROM admin_profile WHERE email='$userEmail'");
+  $num = mysqli_num_rows($query);
+  $data = mysqli_fetch_assoc($query);
+  // data from db
+  $username = $data['username'];
+  $email = $data['email'];
+  $img = $data['img'];
+  // $pwd = str_replace($pwd);
 }else{
-  echo "sdcsdcscsdc";
+  header("location: login.php");
+  die;
 }
 
 ?>
@@ -59,21 +68,29 @@ if(isset($_COOKIE['EML']) && isset($_COOKIE['UPWD'])){
       <br>
       <br>
       <div class="admin-info">
+      <?php if(isset($_GET['err_profile'])){?>
+        <div class="alert alert-danger"><?php echo mysqli_real_escape_string($conn, $_GET['err_profile'])?></div>
+      <?php }else if(isset($_GET['success_profile'])){?>
+        <div class="alert alert-success"><?php echo mysqli_real_escape_string($conn, $_GET['success_profile'])?></div>
+      <?php }?>
         <div class="main-info">
+        <?php if($num > 0){?>
+          <?php ?>
           <div class="img-cont">
-            <div class="img"></div>
+            <div class="img" style="background:url('profile_admin/<?php echo $img;?>'); background-size:cover; background-position:center;"></div>
           </div>
           <div class="info">
-            <h6>Alumona Benaiah</h6>
-            <small>Username: <i></i><span class="username">Benrobo</span></i></small>
+            <h6><?php echo $username;?></h6>
+            <small>Username: <i></i><span class="username"><?php echo $username;?></span></i></small>
             <br>
-            <small>Password: <i><span class="pwd">xxxxxxxx</span></i></small>
+            <!-- <small>Password: <i><span class="pwd">xxxxxxxx</span></i></small> -->
             <br>
             <br>
             <div class="actions">
               <button class="btn btn-primary modal-btn" data-toggle="modal" data-target="#squarespaceModal">Edit Info</button>
             </div>
           </div>
+        <?php }?>
         </div>
       </div>
       <br>
@@ -135,18 +152,21 @@ if(isset($_COOKIE['EML']) && isset($_COOKIE['UPWD'])){
             <span class="btn btn-danger closebtn">&times;</span>
           </div>
           <br>
-          <form action="" class="form-group">
+          <form action="logic/edit_info.php" method="POST" enctype="multipart/form-data" class="form-group">
             <div class="body">
               <label>Image</label>
               <input type="file" name="img">
               <br>
               <label>Username</label>
-              <input type="text" class="form-control mt-1">
+              <input type="text" name="username" class="form-control mt-1">
+              <br>
+              <label>Email</label>
+              <input type="email" name="email" class="form-control mt-1">
               <label>Password</label>
-              <input type="password" class="form-control mt-1">
+              <input type="password" name="pwd" class="form-control mt-1">
             </div>
             <div class="footer mt-2">
-              <input type="submit" class="btn btn-primary">
+              <input type="submit" name="edit_btn" class="btn btn-primary">
               <input type="reset" class="btn btn-danger">
             </div>
           </form>
@@ -156,3 +176,5 @@ if(isset($_COOKIE['EML']) && isset($_COOKIE['UPWD'])){
   </div>
 
 <?php require("inc/footer.php");?>
+
+
