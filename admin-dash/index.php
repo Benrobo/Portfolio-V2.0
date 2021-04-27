@@ -1,73 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="This is my portfolio homepage.">
-  <meta name="description" content="created by: benrobo">
-  <meta name="robots" content="index, follow">
-  <title>Admin Section</title>
-  <link rel="icon" href="../img/profile/avatar.jpeg">
-  <!-- custom css file -->
-  <link rel="stylesheet" href="../css/admin.css" />
+require("logic/dbh/db.php");
 
-  <!-- bootstrap css -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+// print_r($_COOKIE);
+if(isset($_COOKIE['EML']) && isset($_COOKIE['UPWD'])){
 
-<<<<<<< HEAD
+  $userEmail = $_COOKIE['EML'];
+  $query = mysqli_query($conn, "SELECT * FROM admin_profile WHERE email='$userEmail'");
+  $num = mysqli_num_rows($query);
+  $data = mysqli_fetch_assoc($query);
+  // data from db
+  $username = $data['username'];
+  $email = $data['email'];
+  $img = $data['img'];
+  // $pwd = str_replace($pwd);
+}else{
+  header("location: login.php");
+  die;
+}
 
-=======
->>>>>>> a07b6e07f1f07367e4c17a91987b7f16bdf40922
-  <!--  responsive-->
-  <link rel="stylesheet" href="../css/responsive.css" />
-
-  <!--fontawesome icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-  <!-- icons -->
-  <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-    <!-- JavaScript Bundle with Popper -->
-    <script src="../js/jquery.3.4.1.js"></script>
-    <script src="../js/bootstrap.min.js"
-      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-      crossorigin="anonymous"></script>
-</head>
-
-<body>
+?>
+<?php require("inc/head.php");?>
   <div class="amin-col">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Dashboard</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="addpost.html">Add Post</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                More
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li class="p-4">benrobo</li>
-                <li><a class="ml-4 btn btn-danger" href="#">Logout</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    
+  <?php require("inc/nav.php");?>
 
     <div class="main-cont">
       <div class="card-cont">
@@ -112,21 +68,29 @@
       <br>
       <br>
       <div class="admin-info">
+      <?php if(isset($_GET['err_profile'])){?>
+        <div class="alert alert-danger"><?php echo mysqli_real_escape_string($conn, $_GET['err_profile'])?></div>
+      <?php }else if(isset($_GET['success_profile'])){?>
+        <div class="alert alert-success"><?php echo mysqli_real_escape_string($conn, $_GET['success_profile'])?></div>
+      <?php }?>
         <div class="main-info">
+        <?php if($num > 0){?>
+          <?php ?>
           <div class="img-cont">
-            <div class="img"></div>
+            <div class="img" style="background:url('profile_admin/<?php echo $img;?>'); background-size:cover; background-position:center;"></div>
           </div>
           <div class="info">
-            <h6>Alumona Benaiah</h6>
-            <small>Username: <i></i><span class="username">Benrobo</span></i></small>
+            <h6><?php echo $username;?></h6>
+            <small>Username: <i></i><span class="username"><?php echo $username;?></span></i></small>
             <br>
-            <small>Password: <i><span class="pwd">xxxxxxxx</span></i></small>
+            <!-- <small>Password: <i><span class="pwd">xxxxxxxx</span></i></small> -->
             <br>
             <br>
             <div class="actions">
               <button class="btn btn-primary modal-btn" data-toggle="modal" data-target="#squarespaceModal">Edit Info</button>
             </div>
           </div>
+        <?php }?>
         </div>
       </div>
       <br>
@@ -188,18 +152,21 @@
             <span class="btn btn-danger closebtn">&times;</span>
           </div>
           <br>
-          <form action="" class="form-group">
+          <form action="logic/edit_info.php" method="POST" enctype="multipart/form-data" class="form-group">
             <div class="body">
               <label>Image</label>
               <input type="file" name="img">
               <br>
               <label>Username</label>
-              <input type="text" class="form-control mt-1">
+              <input type="text" name="username" class="form-control mt-1">
+              <br>
+              <label>Email</label>
+              <input type="email" name="email" class="form-control mt-1">
               <label>Password</label>
-              <input type="password" class="form-control mt-1">
+              <input type="password" name="pwd" class="form-control mt-1">
             </div>
             <div class="footer mt-2">
-              <input type="submit" class="btn btn-primary">
+              <input type="submit" name="edit_btn" class="btn btn-primary">
               <input type="reset" class="btn btn-danger">
             </div>
           </form>
@@ -208,24 +175,6 @@
     </div>
   </div>
 
-  <!-- JavaScript Bundle with Popper -->
-  <script src="../js/jquery.3.4.1.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script>
-    function handleModal(){
-      let btnmodal = document.querySelector(".modal-btn");
-      let closeModal = document.querySelector(".closebtn");
-      let modalcont = document.querySelector(".modal-cont");
+<?php require("inc/footer.php");?>
 
-      btnmodal.onclick = ()=>{
-        modalcont.style.display = "flex";
-      }
-      closeModal.onclick = ()=>{
-        modalcont.style.display = "none";
-      }
-    }
-    handleModal()
-  </script>
-</body>
 
-</html>

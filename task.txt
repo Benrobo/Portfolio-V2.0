@@ -18,3 +18,34 @@
 --✅✅ Footer Section
 
 =======================Functionlaities ============================
+
+
+========Database Design==================
+        Table Relationship Design
+
+--portfolio_tbl
+    ---id
+    ---title
+    ---img
+    ---contents
+    ---likes_count
+    ---date
+
+--admin_profile
+    ---id
+    ---username
+    ---pwd
+    ---img
+    ---date
+
+---skills_tbl
+    ---id
+    ---img
+
+---feedbacks
+    ---id
+    ---username
+    ---profession
+    ---ratings
+    ---comments
+

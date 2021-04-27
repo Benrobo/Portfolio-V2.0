@@ -88,9 +88,6 @@ label small {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: #000;
-  background-size: cover;
-  background-position: center;
 }
 .admin-info .main-info .info {
   float: right;
