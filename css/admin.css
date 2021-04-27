@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap");
 @import url("variables.css");
 
@@ -15,6 +15,34 @@ body {
   scroll-behavior: smooth !important;
 }
 
+.navbar{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  transition:.1s;
+  position: relative;
+}
+.navbar  .dropdown-menus{
+  position: fixed;
+  top:50px;
+  z-index: 1000;
+  background: #fff;
+  color: #000;
+  text-align: center;
+  padding:0px;
+  display: none;
+}
+
+@media(max-width:768px){
+  .navbar  .dropdown-menus{
+    top:160px;
+  }
+}
+.navbar .dropdown-menus li{
+  list-style: none;
+  text-align: center;
+  /* display: none; */
+}
 .admin-col {
   width: 100%;
   height: 100vh;
@@ -85,8 +113,8 @@ label small {
   float: left;
 }
 .admin-info .main-info .img-cont .img {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height:200px;
   border-radius: 50%;
 }
 .admin-info .main-info .info {

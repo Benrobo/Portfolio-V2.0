@@ -1,45 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+require("logic/dbh/db.php");
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="This is my portfolio homepage.">
-  <meta name="description" content="created by: benrobo">
-  <meta name="robots" content="index, follow">
-  <title>Admin Section</title>
-  <link rel="icon" href="../img/profile/avatar.jpeg">
-  <!-- custom css file -->
-  <link rel="stylesheet" href="../css/admin.css" />
+if(isset($_COOKIE['EML'])){
+  $eml = $_COOKIE['EML'];
+  $query = mysqli_query($conn, "SELECT * FROM admin_profile WHERE email='$eml'");
+  $data = mysqli_fetch_assoc($query);
+}else{
+  header("location:  login.php");
+  die;
+}
+?>
 
-  <!-- bootstrap css -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css" />
-
-  <!--  responsive-->
-  <link rel="stylesheet" href="../css/responsive.css" />
-
-  <!--fontawesome icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-  <!-- icons -->
-  <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-    <!-- JavaScript Bundle with Popper -->
-    <script src="../js/jquery.3.4.1.js"></script>
-    <script src="../js/bootstrap.min.js"
-      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-      crossorigin="anonymous"></script>
-</head>
+<?php require_once("inc/head.php");?>
 
 <body>
   <div class="amin-col">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Dashboard</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler burger" type="button" data-bs-toggle="collapse">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-collapse">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -47,12 +29,11 @@
             <li class="nav-item">
               <a class="nav-link" href="addpost.html">Add Post</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+            <li class="">
+              <a class="btn-toggle btn btn-primary" href="#">
                 More
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <ul class="dropdown-menus">
                 <li class="p-4">benrobo</li>
                 <li><a class="ml-4 btn btn-danger" href="#">Logout</a></li>
                 <li>
@@ -107,16 +88,22 @@
 
       <br>
       <br>
+      <?php if(isset($_GET['err_profile'])){?>
+        <div class="alert alert-danger"><?php echo $_GET['err_profile'];?></div>
+        <?php }else if(isset($_GET['success_profile'])){?>
+
+        <div class="alert alert-success"><?php echo $_GET['success_profile'];?></div>
+        <?php }?>
       <div class="admin-info">
         <div class="main-info">
           <div class="img-cont">
-            <div class="img"></div>
+            <div class="img" style="background:url('profile_admin/<?php echo $data['img']; ?>'); background-size:cover; background-position:center;"></div>
           </div>
           <div class="info">
-            <h6>Alumona Benaiah</h6>
-            <small>Username: <i></i><span class="username">Benrobo</span></i></small>
+            <h6><?php echo $data['username']; ?></h6>
+            <small>Username: <i></i><span class="username"><?php echo $data['username']; ?></span></i></small>
             <br>
-            <small>Password: <i><span class="pwd">xxxxxxxx</span></i></small>
+            <!-- <small>Password: <i><span class="pwd">xxxxxxxx</span></i></small> -->
             <br>
             <br>
             <div class="actions">
@@ -191,6 +178,9 @@
               <br>
               <label>Username</label>
               <input type="text" name="username" class="form-control mt-1">
+              <br>
+              <label>Email</label>
+              <input type="Email" name="email" class="form-control mt-1">
               <label>Password</label>
               <input type="password" name="pwd" class="form-control mt-1">
             </div>
@@ -221,7 +211,43 @@
       }
     }
     handleModal()
+
+    function navbar(){
+      let burger = document.querySelector(".burger");
+      let navbar = document.querySelector(".navbar");
+      let isclicked = false;
+
+      burger.addEventListener("click", ()=>{
+        if(isclicked == false){
+          navbar.style.height = "170px";
+          isclicked = true;
+        }else{
+          navbar.style.height = "50px";
+          isclicked = false;
+        }
+      })
+
+      
+    }
+    navbar()
+
+    function morebtn(){
+      let isclicked = false;
+      let morebtn = document.querySelector(".btn-toggle");
+      let dropdown = document.querySelector(".dropdown-menus");
+
+      morebtn.addEventListener("click", ()=>{
+        if(isclicked == false){
+          dropdown.style.display = "block";
+          isclicked = true;
+        }else{
+          dropdown.style.display = "none";
+          isclicked = false;
+        }
+      })
+    }
+    morebtn()
   </script>
 </body>
 
-</html>
+<?php require_once("inc/footer.php");?>
