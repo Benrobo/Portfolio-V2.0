@@ -18,6 +18,42 @@
       }
     }
     handleModal()
+
+    function navbar(){
+      let burger = document.querySelector(".burger");
+      let navbar = document.querySelector(".navbar");
+      let isclicked = false;
+
+      burger.addEventListener("click", ()=>{
+        if(isclicked == false){
+          navbar.style.height = "170px";
+          isclicked = true;
+        }else{
+          navbar.style.height = "50px";
+          isclicked = false;
+        }
+      })
+
+      
+    }
+    navbar()
+
+    function morebtn(){
+      let isclicked = false;
+      let morebtn = document.querySelector(".btn-toggle");
+      let dropdown = document.querySelector(".dropdown-menus");
+
+      morebtn.addEventListener("click", ()=>{
+        if(isclicked == false){
+          dropdown.style.display = "block";
+          isclicked = true;
+        }else{
+          dropdown.style.display = "none";
+          isclicked = false;
+        }
+      })
+    }
+    morebtn()
   </script>
 </body>
 

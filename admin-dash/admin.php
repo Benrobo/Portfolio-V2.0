@@ -35,7 +35,7 @@ if(isset($_COOKIE['EML'])){
               </a>
               <ul class="dropdown-menus">
                 <li class="p-4">benrobo</li>
-                <li><a class="ml-4 btn btn-danger" href="#">Logout</a></li>
+                <li><a class="ml-4 btn btn-danger" href="logic/logout.php">Logout</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>

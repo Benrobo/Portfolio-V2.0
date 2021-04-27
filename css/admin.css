@@ -17,7 +17,7 @@ body {
 
 .navbar{
   width: 100%;
-  height: auto;
+  height: 60px;
   overflow: hidden;
   transition:.1s;
   position: relative;

@@ -3,7 +3,7 @@
 require("logic/dbh/db.php");
 
 // print_r($_COOKIE);
-if(isset($_COOKIE['EML']) && isset($_COOKIE['UPWD'])){
+if(isset($_COOKIE['EML'])){
 
   $userEmail = $_COOKIE['EML'];
   $query = mysqli_query($conn, "SELECT * FROM admin_profile WHERE email='$userEmail'");

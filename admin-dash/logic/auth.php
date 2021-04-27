@@ -33,9 +33,9 @@ if(isset($_POST['loginbtn'])){
     else{
         if(password_verify($pwd, $hash)){
             // register cookies
-            setcookie("EML", $email, time()+84576, "/");
-            setcookie("UPWD", $hash, time()+84576, "/");
-            header("location: ../admin.php");
+            setcookie("EML", $email, time()+86400*30, "/");
+            // setcookie("UPWD", $hash, time()+86400*30, "/");
+            header("location: ../index.php");
             die;
         }else{
             header("location: ../login.php?err=".str_replace(" ", "-", "Password given is incorrect"));
