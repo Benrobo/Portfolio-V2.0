@@ -33,28 +33,28 @@ Complete Portfolio Website with Bootstrap - HTML/CSS In this project, we are goi
 #### Table Relationship Design
 
 --portfolio_tbl
-    ---id
-    ---title
-    ---img
-    ---contents
-    ---likes_count
-    ---date
+    -- id
+    -- title
+    -- img
+    -- contents
+    -- likes_count
+    -- date
 
 --admin_profile
-    ---id
-    ---username
-    ---pwd
-    ---img
-    ---date
+    -- id
+    -- username
+    -- pwd
+    -- img
+    -- date
 
 ---skills_tbl
-    ---id
-    ---img
+    -- id
+    -- img
 
 ---feedbacks
-    ---id
-    ---username
-    ---profession
-    ---ratings
-    ---comments
+    -- id
+    -- username
+    -- profession
+    -- ratings
+    -- comments
 
