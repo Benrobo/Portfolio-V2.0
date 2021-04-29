@@ -1,3 +1,6 @@
+<?php
+require("logic/dbh/db.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -46,7 +49,11 @@
             <div class="col-md-8 col-md-offset-2 addpost-cont">
                 <label for="btn btn-default"><a href="/admin-dash/index.php" class="text-white">Back</a></label>
                 <h1>Create post</h1>
-                
+                <?php if(isset($_GET['err_upload'])){?>
+                    <div class="alert alert-danger"><?php echo mysqli_real_escape_string($conn, $_GET['err_upload'])?></div>
+                <?php }else if(isset($_GET['success_upload'])){?>
+                    <div class="alert alert-success"><?php echo mysqli_real_escape_string($conn, $_GET['success_upload'])?></div>
+                <?PHP }?>    
                 <form action="logic/addpost.php" method="POST" enctype="multipart/form-data">
                     
                     <div class="form-group has-error">
