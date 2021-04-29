@@ -32,6 +32,7 @@ Complete Portfolio Website with Bootstrap - HTML/CSS In this project, we are goi
 ### Database Design
 #### Table Relationship Design
 
+<pre>
 -- portfolio_tbl
     -- id
     -- title
@@ -57,4 +58,4 @@ Complete Portfolio Website with Bootstrap - HTML/CSS In this project, we are goi
     -- profession
     -- ratings
     -- comments
-
+</pre>
