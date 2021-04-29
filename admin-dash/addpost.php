@@ -50,7 +50,7 @@ require("logic/dbh/db.php");
             <?php if(!isset($_GET['uuid'])){?>
                 <div class="col-md-8 col-md-offset-2 addpost-cont">
                     <label for="btn btn-default"><a href="index.php" class="text-white">Back</a></label>
-                    <h1>Edit post</h1>
+                    <h1>Add post</h1>
                     <?php if(isset($_GET['err_edit'])){?>
                         <div class="alert alert-danger"><?php echo mysqli_real_escape_string($conn, $_GET['err_edit'])?></div>
                     <?php }else if(isset($_GET['success_edit'])){?>
@@ -102,7 +102,7 @@ require("logic/dbh/db.php");
                     <?php }else if(isset($_GET['success_edit'])){?>
                         <div class="alert alert-success"><?php echo mysqli_real_escape_string($conn, $_GET['success_edit'])?></div>
                     <?PHP }?>    
-                    <form action="logic/editpost.php" method="POST" enctype="multipart/form-data">
+                    <form action="logic/editpost.php?uuid=<?php echo $_GET['uuid']; ?>" method="POST" enctype="multipart/form-data">
                         
                         <div class="form-group has-error">
                             <label for="slug">Image <span class="require">
