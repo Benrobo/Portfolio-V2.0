@@ -141,7 +141,8 @@ if(isset($_COOKIE['EML'])){
                       <a href="addpost.php?uuid=<?php echo $data['id']; ?>" class="text-success" title="Edit Post"><small>
                           <ion-icon name="pencil-outline"></ion-icon>
                         </small></a>
-                      <a href="logic/del.php?uuid=<?php echo $data['id']; ?>" class="text-danger" title="Delete Post"><small>
+                        <input type="hidden" value="<?php echo $data['id']; ?>" id="postid">
+                      <a href="" class="text-danger delbtn" title="Delete Post"><small>
                           <ion-icon name="trash-outline"></ion-icon>
                         </small></a>
                     </div>
@@ -190,6 +191,31 @@ if(isset($_COOKIE['EML'])){
     </div>
   </div>
 
+  <script>
+    
+    function deletePost(){
+      let delbtn = document.querySelectorAll(".delbtn");
+      let postid = document.querySelector("#postid").value
+      if(delbtn.length > 1){
+        for (let i = 0; i < delbtn.length; i++) {
+          delbtn[i].addEventListener("click",(e)=>{
+            e.preventDefault();
+            let cnfirm = confirm("Are you sure you want to delete this post?");
+            if(cnfirm == true){
+              window.location = `logic/del.php?uuid=${postid}`;
+            }
+          });
+        }
+      }else{
+        delbtn[0].addEventListener("click",(e)=>{
+          e.preventDefault();
+          let cnfirm = confirm("Are you sure you want to delete this post?");
+          if(cnfirm == true){
+            window.location = `logic/del.php?uuid=${postid}`;
+          }
+        });
+      }
+    }
+    deletePost()
+  </script>
 <?php require("inc/footer.php");?>
-
-
