@@ -128,6 +128,7 @@ if($count > 0){
                             <label for="description">Description</label>
                             <!-- Create the editor container -->
                         <!-- <div id="editor" name="body"></div> -->
+                        <input type="hidden" class="hidden" value="<?php  echo $data['contents']; ?>">
                         <textarea name="body" id="editor" cols="30" rows="10" class="form-dfbcontrol">
                             
                         </textarea>
@@ -156,6 +157,13 @@ if($count > 0){
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
     <script src="quill/quill.js"></script>
+    <?php if(isset($_GET['uuid'])){?>
+        <script>
+            var quill = document.querySelector("#editor")
+            var text = document.querySelector('.hidden').value;
+            quill.textContent = text;
+        </script>
+    <?php }?>
     <script>
         function navbar(){
         let burger = document.querySelector(".burger");

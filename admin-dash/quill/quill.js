@@ -23,8 +23,5 @@ var quill = new Quill("#editor", {
     toolbar: toolbarOptions,
   },
   theme: "snow",
-  placeholder: 'Compose an epic...',
+  placeholder: 'Compose an epic...'
 });
-
-var toolbar = quill.getModule('toolbar');
-toolbar.addHandler('image', showImageUI);

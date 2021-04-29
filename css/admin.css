@@ -22,6 +22,7 @@ body {
   transition:.1s;
   position: relative;
 }
+
 .navbar  .dropdown-menus{
   position: fixed;
   top:50px;

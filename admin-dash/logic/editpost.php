@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
         #upload file to folder
         if(move_uploaded_file($_FILES['img']['tmp_name'], $target)){
             #update database admin info 
-            $query = mysqli_query($conn, "INSERT INTO portfolio_tbl(title, img, contents)VALUES('$title','$img','$body')");
+            $query = mysqli_query($conn, "UPDATE portfolio_tbl(title, img, contents) SET title='$title','$img','$body')");
             if($query){
                 $success .= "Successfully added posts";
                 header("location: ../addpost.php?success_edit=$success");
