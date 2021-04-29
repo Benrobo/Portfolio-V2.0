@@ -31,7 +31,7 @@
             ></a>
           </li>
           <li>
-            <a href="#contact"
+            <a href="index.php#contact"
               ><ion-icon name="call-outline" class="navbar-icons"></ion-icon
             ></a>
           </li>

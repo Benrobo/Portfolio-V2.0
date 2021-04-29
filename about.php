@@ -1,57 +1,7 @@
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="This is my portfolio about page.">
-    <meta name="description" content="created by: benrobo">
-    <meta name="robots" content="index, follow">
-    <title>Benrobo | About</title>
-    <link rel="icon" href="img/profile/avatar.jpeg">
-    <!-- custom css file -->
-    <link rel="stylesheet" href="css/style.css" />
-
-    <!-- about css -->
-    <link rel="stylesheet" href="css/about.css" />
-
-    <!-- bootstrap css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-
-    <!--  responsive-->
-    <link rel="stylesheet" href="css/responsive.css" />
-
-    <!--fontawesome icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="path/to/font-awesome/css/font-awesome.min.css"
-    />
-
-    <!-- icons -->
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-  </head>
-  <body>
+<?php require_once('inc/about-head.php');?>
     <!-- top navbar -->
-    <nav class="top-navbar-column mobilenav">
-      <!-- two menu -->
-      <div class="left-dots navbar-menu-icon">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-
-      <!-- burger menu dots -->
-      <div class="burger right-burger navbar-menu-icon">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </nav>
+    <?php require_once('inc/top-nav.php'); ?>
 
     <div class="container-column">
       <!-- sidebar column -->
@@ -277,45 +227,7 @@
         </section>
       </main>
 
-      <!-- right navbar -->
-      <nav class="right-sidebar-column">
-        <div class="burger right-sidebar-menu">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <br />
-        <br />
-        <!-- navigation links -->
-        <div class="navigation-links">
-          <li>
-            <a href="index.html"
-              ><ion-icon name="home-outline" class="navbar-icons"></ion-icon
-            ></a>
-          </li>
-          <li>
-            <a href="about.html"
-              ><ion-icon
-                name="person-add-outline"
-                class="navbar-icons"
-              ></ion-icon
-            ></a>
-          </li>
-          <li>
-            <a href="portfolio.html"
-              ><ion-icon
-                name="briefcase-outline"
-                class="navbar-icons"
-              ></ion-icon
-            ></a>
-          </li>
-          <li>
-            <a href="index.html#contact"
-              ><ion-icon name="call-outline" class="navbar-icons"></ion-icon
-            ></a>
-          </li>
-        </div>
-      </nav>
+      <?php require_once('inc/right-nav.php');?>
     </div>
 
     <script>
