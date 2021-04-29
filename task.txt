@@ -17,7 +17,14 @@
 
 --✅✅ Footer Section
 
-=======================Functionlaities ============================
+======================Functionlaities==============
+
+--✅✅ Add Post functionality
+--✅✅ Add User Authentication functionality
+--✅✅ Add Img functionality
+--✅✅ Display Post in table form from database functionality
+--✅✅ Edit & Delete Posts
+
 
 
 ========Database Design==================

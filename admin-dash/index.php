@@ -72,6 +72,10 @@ if(isset($_COOKIE['EML'])){
         <div class="alert alert-danger"><?php echo mysqli_real_escape_string($conn, $_GET['err_profile'])?></div>
       <?php }else if(isset($_GET['success_profile'])){?>
         <div class="alert alert-success"><?php echo mysqli_real_escape_string($conn, $_GET['success_profile'])?></div>
+      <?php }else if(isset($_GET['err_img'])){?>
+        <div class="alert alert-danger"><?php echo mysqli_real_escape_string($conn, $_GET['err_img'])?></div>
+      <?php }else if(isset($_GET['succ_img'])){?>
+        <div class="alert alert-success"><?php echo mysqli_real_escape_string($conn, $_GET['succ_img'])?></div>
       <?php }?>
         <div class="main-info">
         <?php if($num > 0){?>
@@ -97,10 +101,11 @@ if(isset($_COOKIE['EML'])){
       <br>
       <!--add skils images -->
       <div class="skill-card">
+          <small style="color:#777;">https://img.icons8.com/color/30/000000/javascript.png</small>
         <div class="cont">
           <h3>Add Skills Images</h3>
           <br>
-          <form action="" class="form-group form-online">
+          <form action="logic/skills.php" class="form-group form-online" method="post">
             <input type="url" name="url" class="form-control" placeholder="url of image">
             <input type="submit" name="submit" class="btn btn-primary btn-block mt-1">
           </form>
