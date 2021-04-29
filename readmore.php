@@ -30,6 +30,8 @@ else{
         <div class="cont mt-5">
             <div class="img-cont" style="background:url('img/portfolio_img/<?php echo $data['img']; ?>'); background-size:cover;"></div>
             <br>
+            <small><span class="text-secondary"><a href="index.php">Home</a> / <a href="Portfolio.php">Portfolio</a> / Posts Page</span></small>
+            <br>
             <div class="date-cont m-2">
                 <small class="date"><?php echo $formated;?></small>
             </div>
