@@ -47,7 +47,7 @@ require("logic/dbh/db.php");
         <div class="row">
             
             <div class="col-md-8 col-md-offset-2 addpost-cont">
-                <label for="btn btn-default"><a href="/admin-dash/index.php" class="text-white">Back</a></label>
+                <label for="btn btn-default"><a href="index.php" class="text-white">Back</a></label>
                 <h1>Create post</h1>
                 <?php if(isset($_GET['err_upload'])){?>
                     <div class="alert alert-danger"><?php echo mysqli_real_escape_string($conn, $_GET['err_upload'])?></div>
