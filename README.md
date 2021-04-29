@@ -3,22 +3,58 @@ Complete Portfolio Website with Bootstrap - HTML/CSS In this project, we are goi
 
 ## Task Completed
 
-- ✅✅ Navigation Bar
+#### UI COMPONENT
 
-- ✅✅ Two left & right sideBar
+--✅✅ Navigation Bar
 
-- ✅✅ Banner Section.
+--✅✅ Two left & right sideBar
 
-- ✅✅ Services Section
+--✅✅ Banner Section.
 
-- ✅✅ Portfolio Section
+--✅✅ Services Section
 
-- ✅✅ Contact Info Section
+--✅✅ Portfolio Section
 
-- ✅✅ Footer Section
+--✅✅ Contact Info Section
 
-- ✅✅ Admin Page Section
+--✅✅ Footer Section
 
-- ✅✅ Feedback Form Section
+### Functionlaities
 
-- ✅✅ Portfolio Post Section
+--✅✅ Add Post functionality
+--✅✅ Add User Authentication functionality
+--✅✅ Add Img functionality
+--✅✅ Display Post in table form from database functionality
+--✅✅ Edit & Delete Posts
+
+
+
+### Database Design
+#### Table Relationship Design
+
+--portfolio_tbl
+    ---id
+    ---title
+    ---img
+    ---contents
+    ---likes_count
+    ---date
+
+--admin_profile
+    ---id
+    ---username
+    ---pwd
+    ---img
+    ---date
+
+---skills_tbl
+    ---id
+    ---img
+
+---feedbacks
+    ---id
+    ---username
+    ---profession
+    ---ratings
+    ---comments
+
