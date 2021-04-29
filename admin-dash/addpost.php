@@ -1,5 +1,6 @@
 <?php
 require("logic/dbh/db.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,50 +47,97 @@ require("logic/dbh/db.php");
     <div class="container">
         <div class="row">
             
-            <div class="col-md-8 col-md-offset-2 addpost-cont">
-                <label for="btn btn-default"><a href="index.php" class="text-white">Back</a></label>
-                <h1>Create post</h1>
-                <?php if(isset($_GET['err_upload'])){?>
-                    <div class="alert alert-danger"><?php echo mysqli_real_escape_string($conn, $_GET['err_upload'])?></div>
-                <?php }else if(isset($_GET['success_upload'])){?>
-                    <div class="alert alert-success"><?php echo mysqli_real_escape_string($conn, $_GET['success_upload'])?></div>
-                <?PHP }?>    
-                <form action="logic/addpost.php" method="POST" enctype="multipart/form-data">
-                    
-                    <div class="form-group has-error">
-                        <label for="slug">Image <span class="require">
-                            <br>
-                        <input type="file" class="btn btn-primary" name="img" />
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="title">Title <span class="require">*</span></label>
-                        <input type="text" class="form-control" name="title" />
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <!-- Create the editor container -->
-                    <!-- <div id="editor" name="body"></div> -->
-                    <textarea name="body" id="editor" cols="30" rows="10" class="form-dfbcontrol"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <p><span class="require">*</span> - required fields</p>
-                    </div>
-                    
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary" name="submit">
-                            Create
-                        </button>
-                        <button class="btn btn-danger">
-                            Cancel
-                        </button>
-                    </div>
-                    
-                </form>
-            </div>
+            <?php if(!isset($_GET['uuid'])){?>
+                <div class="col-md-8 col-md-offset-2 addpost-cont">
+                    <label for="btn btn-default"><a href="index.php" class="text-white">Back</a></label>
+                    <h1>Edit post</h1>
+                    <?php if(isset($_GET['err_edit'])){?>
+                        <div class="alert alert-danger"><?php echo mysqli_real_escape_string($conn, $_GET['err_edit'])?></div>
+                    <?php }else if(isset($_GET['success_edit'])){?>
+                        <div class="alert alert-success"><?php echo mysqli_real_escape_string($conn, $_GET['success_edit'])?></div>
+                    <?PHP }?>    
+                    <form action="logic/addpost.php" method="POST" enctype="multipart/form-data">
+                        
+                        <div class="form-group has-error">
+                            <label for="slug">Image <span class="require">
+                                <br>
+                            <input type="file" class="btn btn-primary" name="img" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="title">Title <span class="require">*</span></label>
+                            <input type="text" class="form-control" name="title" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <!-- Create the editor container -->
+                        <!-- <div id="editor" name="body"></div> -->
+                        <textarea name="body" id="editor" cols="30" rows="10" class="form-dfbcontrol"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <p><span class="require">*</span> - required fields</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" name="submit">
+                                Create
+                            </button>
+                            <button class="btn btn-danger">
+                                Cancel
+                            </button>
+                        </div>
+                        
+                    </form>
+                </div>
+            <?php }?>
             
+            <?php if(isset($_GET['uuid'])){?>
+                <div class="col-md-8 col-md-offset-2 addpost-cont">
+                    <label for="btn btn-default"><a href="index.php" class="text-white">Back</a></label>
+                    <h1>Edit post</h1>
+                    <?php if(isset($_GET['err_edit'])){?>
+                        <div class="alert alert-danger"><?php echo mysqli_real_escape_string($conn, $_GET['err_edit'])?></div>
+                    <?php }else if(isset($_GET['success_edit'])){?>
+                        <div class="alert alert-success"><?php echo mysqli_real_escape_string($conn, $_GET['success_edit'])?></div>
+                    <?PHP }?>    
+                    <form action="logic/editpost.php" method="POST" enctype="multipart/form-data">
+                        
+                        <div class="form-group has-error">
+                            <label for="slug">Image <span class="require">
+                                <br>
+                            <input type="file" class="btn btn-primary" name="img" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="title">Title <span class="require">*</span></label>
+                            <input type="text" class="form-control" name="title" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <!-- Create the editor container -->
+                        <!-- <div id="editor" name="body"></div> -->
+                        <textarea name="body" id="editor" cols="30" rows="10" class="form-dfbcontrol"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <p><span class="require">*</span> - required fields</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" name="submit">
+                                Create
+                            </button>
+                            <button class="btn btn-danger">
+                                Cancel
+                            </button>
+                        </div>
+                        
+                    </form>
+                </div>
+            <?php }?>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

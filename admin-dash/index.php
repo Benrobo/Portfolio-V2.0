@@ -126,21 +126,31 @@ if(isset($_COOKIE['EML'])){
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Chat Application</td>
-                <td>12, April 2020</td>
-                <td>
-                  <div class="actions">
-                    <a href="" class="text-success"><small>
-                        <ion-icon name="pencil-outline"></ion-icon>
-                      </small></a>
-                    <a href="" class="text-danger"><small>
-                        <ion-icon name="trash-outline"></ion-icon>
-                      </small></a>
-                  </div>
-                </td>
-              </tr>
+              <?php 
+                $query = mysqli_query($conn, "SELECT * FROM portfolio_tbl");
+                $num = mysqli_num_rows($query);
+                $i = 0;
+                if($num > 0){?>
+                <?php while($data = mysqli_fetch_assoc($query)){?>
+                <tr>
+                  <td><?php echo ++$i;?></td>
+                  <td><?php echo $data['title']; ?></td>
+                  <td><?php echo $data['reg_date']; ?></td>
+                  <td>
+                    <div class="actions">
+                      <a href="addpost.php?uuid=<?php echo $data['id']; ?>" class="text-success" title="Edit Post"><small>
+                          <ion-icon name="pencil-outline"></ion-icon>
+                        </small></a>
+                      <a href="logic/del.php?uuid=<?php echo $data['id']; ?>" class="text-danger" title="Delete Post"><small>
+                          <ion-icon name="trash-outline"></ion-icon>
+                        </small></a>
+                    </div>
+                  </td>
+                </tr>
+              <?php }?>
+              <?php }else{?>
+                <h6>No data Available</h6>
+              <?php }?>
             </tbody>
           </table>
         </div>
