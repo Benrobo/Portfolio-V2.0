@@ -2,13 +2,12 @@
 
 require("dbh/db.php");
 
-if(isset($_POST['edit_btn'])){
+if(isset($_POST['submit'])){
     // directory
-    $upload = "../profile_admin/";
+    $upload = ".../img/portfolio_img/";
 
-    $name = mysqli_real_escape_string($conn, $_POST['username']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
+    $title = mysqli_real_escape_string($conn, $_POST['title']);
+    $body = mysqli_real_escape_string($conn, $_POST['body']);
     $img = $_FILES['img']['name'];
     $info = pathinfo($img);
     $img_ext = $info['extension'];
@@ -22,22 +21,22 @@ if(isset($_POST['edit_btn'])){
 
     if(empty($name) || empty($email) || empty($pwd)){
         $err .= "Fields cannot be empty";
-        header("location: ../index.php?err_profile=$err");
+        header("location: ../admin.php?err_profile=$err");
         die;
     }
     else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         $err .= "Email given is invalid";
-        header("location: ../index.php?err_profile=$err");
+        header("location: ../admin.php?err_profile=$err");
         die;
     }
     else if(strlen($pwd) < 6){
         $err .= "Password lenght must be >= 6";
-        header("location: ../index.php?err_profile=$err");
+        header("location: ../admin.php?err_profile=$err");
         die;
     }
     else if (!in_array($img_ext, $img_type)){
         $err .= "Image filetype is invalid, valid filetype (jpeg, jpg, png)";
-        header("location: ../index.php?err_profile=$err");
+        header("location: ../admin.php?err_profile=$err");
         die;
     }
     else {
@@ -48,11 +47,11 @@ if(isset($_POST['edit_btn'])){
             $query = mysqli_query($conn, "UPDATE admin_profile SET username='$name', email='$email', img='$img', pwd='$newpwd'");
             if($query){
                 $success .= "Successfully updated your profile";
-                header("location: ../index.php?success_profile=$success");
+                header("location: ../admin.php?success_profile=$success");
                 die;
             }else{
                 $err .= "Profile could not be updated, try later err ".mysqli_error($conn);
-                header("location: ../index.php?err_profile=$err");
+                header("location: ../admin.php?err_profile=$err");
                 die;
             }
         }

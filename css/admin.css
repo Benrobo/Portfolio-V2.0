@@ -164,5 +164,11 @@ label small {
 }
 
 #editor{
-  color:#fff !important;
+  border: none !important;
+  outline: none !important;
+  background: #2c2c36 !important;
+  color: #fff !important;
+  width: 100%;
+  text-indent: 10px;
+  resize: none;
 }

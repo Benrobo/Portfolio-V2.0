@@ -44,10 +44,10 @@
         <div class="row">
             
             <div class="col-md-8 col-md-offset-2 addpost-cont">
-                <label for="btn btn-default"><a href="/admin-dash/admin.html" class="text-white">Back</a></label>
+                <label for="btn btn-default"><a href="/admin-dash/index.php" class="text-white">Back</a></label>
                 <h1>Create post</h1>
                 
-                <form action="" method="POST">
+                <form action="logic/addpost.php" method="POST" enctype="multipart/form-data">
                     
                     <div class="form-group has-error">
                         <label for="slug">Image <span class="require">
@@ -63,7 +63,8 @@
                     <div class="form-group">
                         <label for="description">Description</label>
                         <!-- Create the editor container -->
-                    <div id="editor"></div>
+                    <!-- <div id="editor" name="body"></div> -->
+                    <textarea name="body" id="editor" cols="30" rows="10" class="form-dfbcontrol"></textarea>
                     </div>
                     
                     <div class="form-group">
@@ -71,7 +72,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary" name="submit">
                             Create
                         </button>
                         <button class="btn btn-danger">
