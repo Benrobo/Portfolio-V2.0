@@ -1,15 +1,6 @@
 <?php
 require("logic/dbh/db.php");
 
-$uuid = mysqli_real_escape_string($conn, $_GET['uuid']);
-$query = mysqli_query($conn, " SELECT * FROM portfolio_tbl WHERE id='$uuid'");
-$count = mysqli_num_rows($query);
-
-if($count > 0){
-    $data = mysqli_fetch_assoc($query);
-}else{
-   header("location: index.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,10 +51,10 @@ if($count > 0){
                 <div class="col-md-8 col-md-offset-2 addpost-cont">
                     <label for="btn btn-default"><a href="index.php" class="text-white">Back</a></label>
                     <h1>Add post</h1>
-                    <?php if(isset($_GET['err_edit'])){?>
-                        <div class="alert alert-danger"><?php echo mysqli_real_escape_string($conn, $_GET['err_edit'])?></div>
-                    <?php }else if(isset($_GET['success_edit'])){?>
-                        <div class="alert alert-success"><?php echo mysqli_real_escape_string($conn, $_GET['success_edit'])?></div>
+                    <?php if(isset($_GET['err_upload'])){?>
+                        <div class="alert alert-danger"><?php echo mysqli_real_escape_string($conn, $_GET['err_upload'])?></div>
+                    <?php }else if(isset($_GET['success_upload'])){?>
+                        <div class="alert alert-success"><?php echo mysqli_real_escape_string($conn, $_GET['success_upload'])?></div>
                     <?PHP }?>    
                     <form action="logic/addpost.php" method="POST" enctype="multipart/form-data">
                         
@@ -102,7 +93,19 @@ if($count > 0){
                 </div>
             <?php }?>
             
-            <?php if(isset($_GET['uuid'])){?>
+            <?php 
+                
+                if(isset($_GET['uuid'])){
+                    $uuid = mysqli_real_escape_string($conn, $_GET['uuid']);
+                $query = mysqli_query($conn, " SELECT * FROM portfolio_tbl WHERE id='$uuid'");
+                $count = mysqli_num_rows($query);
+                
+                if($count > 0){
+                    $data = mysqli_fetch_assoc($query);
+                }else{
+                   header("location: index.php");
+                }
+            ?>
                 <div class="col-md-8 col-md-offset-2 addpost-cont">
                     <label for="btn btn-default"><a href="index.php" class="text-white">Back</a></label>
                     <h1>Edit post</h1>

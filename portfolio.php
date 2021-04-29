@@ -138,18 +138,27 @@ $num = mysqli_num_rows($query);
             <div class="portfolio-cont">
               <?php if($num > 0){?>
                 <?php while($data = mysqli_fetch_assoc($query)){?>
+                  <?php 
+                    $dbdate = strtotime($data['reg_date']);  
+                    $info = getdate(date($dbdate));
+                    $mth = $info['month'];
+                    $day = $info['wday'];
+                    $yr = $info['year'];
+
+                    $formated = $day.", ".$mth." ".$yr;
+                  ?>
                   <div class="box">
                     <div class="img" style="background:url('img/portfolio_img/<?php echo $data['img']; ?>'); background-size:cover; background-position:center;"></div>
 
                     <div class="date-cont">
-                      <small class="date">12 March, 2020</small>
+                      <small class="date"><?php echo $formated; ?></small>
                     </div>
 
                     <div class="title-cont">
-                      <p class="title">Chat Application</p>
+                      <p class="title"><?php echo $data['title']; ?></p>
                     </div>
                     <div class="footer">
-                      <a href="#" class="readmore">READ MORE ></a>
+                      <a href="readmore.php?pstid=<?php echo $data['id']; ?>" class="readmore">READ MORE ></a>
                     </div>
                   </div>
               <?php }?>
