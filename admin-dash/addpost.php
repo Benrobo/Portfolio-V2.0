@@ -19,27 +19,19 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
         <!--  responsive-->
         <link rel="stylesheet" href="../css/responsive.css" />
-    
-        <!--fontawesome icons -->
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-        />
+        
         <link
           rel="stylesheet"
           href="path/to/font-awesome/css/font-awesome.min.css"
         />
-          <!-- Main Quill library -->
-        <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
-        <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
 
         <!-- Theme included stylesheets -->
-        <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-        <link href="//cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+        <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+        <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
 
         <!-- Core build with no theme, formatting, non-essential modules -->
-        <link href="//cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">
-        <script src="//cdn.quilljs.com/1.3.6/quill.core.js"></script>
+        <link href="https://cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">
+        <script src="https://cdn.quilljs.com/1.3.6/quill.core.js"></script>
 
         <!-- icons -->
         <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
@@ -70,7 +62,8 @@
                     
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea rows="5" class="form-control" name="description" id="editor"></textarea>
+                        <!-- Create the editor container -->
+                    <div id="editor"></div>
                     </div>
                     
                     <div class="form-group">
@@ -91,7 +84,10 @@
             
         </div>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Main Quill library -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
     <script src="quill/quill.js"></script>
     <script>
         function navbar(){

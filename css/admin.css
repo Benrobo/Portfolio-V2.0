@@ -162,3 +162,7 @@ label small {
   display: flex;
   justify-content: space-between;
 }
+
+#editor{
+  color:#fff !important;
+}
