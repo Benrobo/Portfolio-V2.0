@@ -1,4 +1,11 @@
+<?php 
 
+require("admin-dash/logic/dbh/db.php");
+
+$query = mysqli_query($conn, "SELECT * FROM portfolio_tbl");
+
+$num = mysqli_num_rows($query);
+?>
 <?php require_once('inc/port-head.php');?>
 
     <?php require_once('inc/top-nav.php');?>
@@ -129,48 +136,24 @@
           <div class="portfolio-main mt-5">
             <h3 class="ml-3" style="font-weight: 600">Portfolios</h3>
             <div class="portfolio-cont">
-              <div class="box">
-                <div class="img" style="background:url(/img/portfolio_img/1.jpeg); background-size:cover;"></div>
+              <?php if($num > 0){?>
+                <?php while($data = mysqli_fetch_assoc($query)){?>
+                  <div class="box">
+                    <div class="img" style="background:url('img/portfolio_img/<?php echo $data['img']; ?>'); background-size:cover; background-position:center;"></div>
 
-                <div class="date-cont">
-                  <small class="date">12 March, 2020</small>
-                </div>
+                    <div class="date-cont">
+                      <small class="date">12 March, 2020</small>
+                    </div>
 
-                <div class="title-cont">
-                  <p class="title">Chat Application</p>
-                </div>
-                <div class="footer">
-                  <a href="#" class="readmore">READ MORE ></a>
-                </div>
-              </div>
-              <div class="box">
-                <div class="img" style="background:url(/img/portfolio_img/1.jpeg); background-size:cover;"></div>
-
-                <div class="date-cont">
-                  <small class="date">12 March, 2020</small>
-                </div>
-
-                <div class="title-cont">
-                  <p class="title">Chat Application</p>
-                </div>
-                <div class="footer">
-                  <a href="#" class="readmore">READ MORE ></a>
-                </div>
-              </div>
-              <div class="box">
-                <div class="img" style="background:url(/img/portfolio_img/1.jpeg); background-size:cover;"></div>
-
-                <div class="date-cont">
-                  <small class="date">12 March, 2020</small>
-                </div>
-
-                <div class="title-cont">
-                  <p class="title">Chat Application</p>
-                </div>
-                <div class="footer">
-                  <a href="#" class="readmore">READ MORE ></a>
-                </div>
-              </div>
+                    <div class="title-cont">
+                      <p class="title">Chat Application</p>
+                    </div>
+                    <div class="footer">
+                      <a href="#" class="readmore">READ MORE ></a>
+                    </div>
+                  </div>
+              <?php }?>
+              <?php }?>
               <div class="empty"></div>
             </div>
           </div>

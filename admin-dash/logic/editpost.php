@@ -38,10 +38,11 @@ if(isset($_POST['submit'])){
         #upload file to folder
         if(move_uploaded_file($_FILES['img']['tmp_name'], $target)){
             #update database admin info 
-            $query = mysqli_query($conn, "UPDATE portfolio_tbl(title, img, contents) SET title='$title','$img','$body')");
+            $query = mysqli_query($conn, "UPDATE portfolio_tbl 
+            SET title='$title', img='$img',contents='$body' WHERE id='$uuid'");
             if($query){
-                $success .= "Successfully added posts";
-                header("location: ../addpost.php?success_edit=$success");
+                $success .= "Successfully updated posts";
+                header("location: ../addpost.php?uuid=$uuid&success_edit=$success");
                 die;
             }else{
                 $err .= "Post could not be added, try later ".mysqli_error($conn);
