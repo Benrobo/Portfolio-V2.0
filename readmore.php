@@ -41,7 +41,7 @@ else{
             </div>
             <br>
             <div class="reaction-cont">
-                <button class="like-btn"><ion-icon name="thumbs-up-outline"></ion-icon><sup><span class="badge badge-warning ml-1">12</span></sup></button>
+                <button class="like-btn" id="<?php $data['id'];?>"><ion-icon name="thumbs-up-outline"></ion-icon><sup><span class="badge badge-warning ml-1">12</span></sup></button>
                 
             </div>
         </div>
