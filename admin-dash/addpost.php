@@ -1,6 +1,15 @@
 <?php
 require("logic/dbh/db.php");
 
+$uuid = mysqli_real_escape_string($conn, $_GET['uuid']);
+$query = mysqli_query($conn, " SELECT * FROM portfolio_tbl WHERE id='$uuid'");
+$count = mysqli_num_rows($query);
+
+if($count > 0){
+    $data = mysqli_fetch_assoc($query);
+}else{
+   header("location: index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -112,14 +121,16 @@ require("logic/dbh/db.php");
                         
                         <div class="form-group">
                             <label for="title">Title <span class="require">*</span></label>
-                            <input type="text" class="form-control" name="title" />
+                            <input type="text" class="form-control" name="title" value="<?php  echo $data['title']; ?>"/>
                         </div>
                         
                         <div class="form-group">
                             <label for="description">Description</label>
                             <!-- Create the editor container -->
                         <!-- <div id="editor" name="body"></div> -->
-                        <textarea name="body" id="editor" cols="30" rows="10" class="form-dfbcontrol"></textarea>
+                        <textarea name="body" id="editor" cols="30" rows="10" class="form-dfbcontrol">
+                            
+                        </textarea>
                         </div>
                         
                         <div class="form-group">
