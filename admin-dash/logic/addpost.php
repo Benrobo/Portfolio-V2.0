@@ -4,7 +4,7 @@ require("dbh/db.php");
 
 if(isset($_POST['submit'])){
     // directory
-    $upload = ".../img/portfolio_img/";
+    $upload = "../../img/portfolio_img/";
 
     $title = mysqli_real_escape_string($conn, $_POST['title']);
     $body = mysqli_real_escape_string($conn, $_POST['body']);
@@ -24,33 +24,22 @@ if(isset($_POST['submit'])){
         header("location: ../addpost.php?err_upload=$err");
         die;
     }
-    else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        $err .= "Email given is invalid";
-        header("location: ../addpost.php?err_upload=$err");
-        die;
-    }
-    else if(strlen($pwd) < 6){
-        $err .= "Password lenght must be >= 6";
-        header("location: ../addpost.php?err_upload=$err");
-        die;
-    }
     else if (!in_array($img_ext, $img_type)){
         $err .= "Image filetype is invalid, valid filetype (jpeg, jpg, png)";
         header("location: ../addpost.php?err_upload=$err");
         die;
     }
     else {
-        $newpwd = password_hash($pwd,  PASSWORD_BCRYPT);
         #upload file to folder
         if(move_uploaded_file($_FILES['img']['tmp_name'], $target)){
             #update database admin info 
-            $query = mysqli_query($conn, "UPDATE admin_profile SET username='$name', email='$email', img='$img', pwd='$newpwd'");
+            $query = mysqli_query($conn, "INSERT INTO portfolio_tbl(title, img, contents)VALUES('$title','$img','$body')");
             if($query){
-                $success .= "Successfully updated your profile";
+                $success .= "Successfully added posts";
                 header("location: ../addpost.php?success_upload=$success");
                 die;
             }else{
-                $err .= "Profile could not be updated, try later err ".mysqli_error($conn);
+                $err .= "Post could not be added, try later ".mysqli_error($conn);
                 header("location: ../addpost.php?err_upload=$err");
                 die;
             }
