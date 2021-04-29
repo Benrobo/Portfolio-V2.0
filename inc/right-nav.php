@@ -10,12 +10,12 @@
         <!-- navigation links -->
         <div class="navigation-links">
           <li>
-            <a href="index.html"
+            <a href="index.php"
               ><ion-icon name="home-outline" class="navbar-icons"></ion-icon
             ></a>
           </li>
           <li>
-            <a href="about.html"
+            <a href="about.php"
               ><ion-icon
                 name="person-add-outline"
                 class="navbar-icons"
@@ -23,7 +23,7 @@
             ></a>
           </li>
           <li>
-            <a href="portfolio.html"
+            <a href="portfolio.php"
               ><ion-icon
                 name="briefcase-outline"
                 class="navbar-icons"

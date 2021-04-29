@@ -11,7 +11,7 @@
     <title>Benrobo Port</title>
     <link rel="icon" href="img/profile/avatar.jpeg">
     <!-- custom css file -->
-    <link rel="stylesheet" href="css/portfolio.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
     <!-- bootstrap css -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
