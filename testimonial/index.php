@@ -7,7 +7,7 @@
         <meta name="description" content="This is my portfolio homepage.">
         <meta name="description" content="created by: benrobo">
         <meta name="robots" content="index, follow">
-        <title>Login</title>
+        <title>Testimonial</title>
         <link rel="icon" href="../img/profile/avatar.jpeg">
         <!-- custom css file -->
         <link rel="stylesheet" href="../css/form.css" />
@@ -35,15 +35,23 @@
     </head>
 <body>
     <div class="header">
-        <h3>Feedback Form</h3>
-        <p>Your feedback is highly appreciated</p>
+        <h3>Testimonial Form</h3>
+        <p>I deeply appreciate your feedback based on my past works and projects.</p>
     </div>
     <div class="container">
         <div class="login-cont">
-           <form action="" class="form-group">
+           <form action="testimonial.php" method="post" class="form-group">
                <h5>Leave a feedback</h5>
+               <?php if(isset($_GET['err'])){?>
+                    <div class="alert alert-danger"><?php echo $_GET['err'] ?></div>
+                <?php }else if(isset($_GET['succ'])){?>
+                    <div class="alert alert-success"><?php echo $_GET['succ'] ?></div>
+                    <?php 
+                        header("Refresh:2; url=../index.php");
+                    ?>
+                <?php }?>
                <label>Full Name</label>
-               <input type="text" name="name" class="form-control mt-1">
+               <input type="text" name="username" class="form-control mt-1">
                <label>Profession</label>
                <input type="text" name="profession" class="form-control mt-1">
                <label>Ratings</label>
@@ -56,13 +64,14 @@
                    <option value="5">5</option>
                </select>
                <label>Comments</label>
-               <textarea name="comment" id="" cols="30" rows="5" class="form-control mt-1"></textarea>
+               <textarea name="comment" cols="30" rows="5" class="form-control mt-1"></textarea>
                <div class="footer mt-2">
-                    <input type="submit" value="Send Feedback" class="btn btn-primary">
+                    <input type="submit" value="Send Feedback" name="submit" class="btn btn-primary">
                     <a href="../" class="btn btn-danger">Cancel</a>
                </div>
            </form> 
         </div>
     </div>
+
 </body>
 </html>

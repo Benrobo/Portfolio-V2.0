@@ -35,5 +35,9 @@
               ><ion-icon name="call-outline" class="navbar-icons"></ion-icon
             ></a>
           </li>
+          <li>
+            <a href="testimonial"
+              ><ion-icon name="chatbox-ellipses-outline" class="navbar-icons"></ion-icon></a>
+          </li>
         </div>
       </nav>
