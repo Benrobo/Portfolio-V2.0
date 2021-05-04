@@ -223,7 +223,7 @@ a {
 /* skill container */
 .sidebar-column .sidebar-main .content .skill-cont {
   width: 250px;
-  max-height: 200px;
+  height: 150px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -231,7 +231,7 @@ a {
   overflow: scroll;
 }
 .sidebar-column .sidebar-main .content .skill-cont::-webkit-scrollbar{
-  display: none;
+  width: 10px;
 }
 
 .sidebar-column .sidebar-main .content .skill-cont img {
@@ -274,7 +274,7 @@ a {
   padding: 3px;
   color: #fff;
   position: relative;
-  bottom: 20px;
+  bottom: 0px;
   margin: 0px auto;
   align-items: center;
   justify-content: center;

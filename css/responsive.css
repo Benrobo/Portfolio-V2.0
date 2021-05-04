@@ -70,8 +70,8 @@
     width: 350px;
   }
   .main-column .portfolio-area .recomendations .rec-card {
-    width: 350px;
-    margin: 0px;
+    width: 300px;
+    margin: 10px;
   }
   .main-column .portfolio-area .services .content .services-box-cont .box {
     width: 45%;
@@ -132,6 +132,7 @@
   }
 .sidebar-column .sidebar-footer {
     height:8vh;
+    bottom: 0px;
 }
   .sidebar-column .sidebar-main .content{
     height:50vh;
@@ -171,8 +172,8 @@
     left: 0px;
   }
   .main-column .portfolio-area .recomendations .rec-card {
-    width: 100%;
-    margin: 0px;
+    width: 300px;
+    margin: 10px;
   }
   .main-column .portfolio-area .portfolio-cont .box .overlay {
     width: 100%;
