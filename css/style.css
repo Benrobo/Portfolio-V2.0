@@ -223,15 +223,20 @@ a {
 /* skill container */
 .sidebar-column .sidebar-main .content .skill-cont {
   width: 250px;
-  height: 150px;
+  max-height: 200px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   padding: 12px;
+  overflow: scroll;
+}
+.sidebar-column .sidebar-main .content .skill-cont::-webkit-scrollbar{
+  display: none;
 }
 
 .sidebar-column .sidebar-main .content .skill-cont img {
   margin: 10px;
+  width: 30px;
 }
 
 /* cv container */
@@ -253,10 +258,10 @@ a {
 .sidebar-column .sidebar-footer {
   position: absolute;
   left: 0px;
-  bottom: 0px;
+  bottom: 50px;
   background: var(--custom-dark-color);
   width: 250px !important;
-  height: 60px;
+  height:50px;
   padding: 13px;
   display: flex;
   /* align-items: center; */
@@ -269,8 +274,7 @@ a {
   padding: 3px;
   color: #fff;
   position: relative;
-  bottom: 10px;
-  height: 40px;
+  bottom: 20px;
   margin: 0px auto;
   align-items: center;
   justify-content: center;

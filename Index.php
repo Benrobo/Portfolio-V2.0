@@ -66,33 +66,15 @@ require_once('inc/head.php');
             <small class="p-1 m-2">My Skills</small>
             <div class="skill-cont">
               <br />
+              <?php 
+                $skillquery = mysqli_query($conn, "SELECT * FROM skills_tbl");
+               
+                while($res = mysqli_fetch_assoc($skillquery)){?>
+              
               <img
-                src="https://img.icons8.com/color/30/000000/javascript.png"
+                src="<?php echo $res['img']; ?>"
               />
-
-              <img src="https://img.icons8.com/color/35/000000/nodejs.png" />
-
-              <img src="https://img.icons8.com/color/30/000000/sql.png" />
-
-              <img
-                src="https://img.icons8.com/color/48/000000/java-coffee-cup-logo.png"
-              />
-
-              <img src="https://img.icons8.com/color/30/000000/html-5.png" />
-
-              <img
-                src="https://img.icons8.com/officel/30/000000/php-logo.png"
-              />
-
-              <img src="https://img.icons8.com/color/30/000000/git.png" />
-
-              <img src="https://img.icons8.com/color/30/000000/bootstrap.png" />
-
-              <img
-                src="https://img.icons8.com/ios-filled/30/0694f3/jquery.png"
-              />
-
-              <img src="https://img.icons8.com/ios/30/0694f3/mysql.png" />
+              <?php }?>
             </div>
             <br />
             <br />
@@ -297,51 +279,36 @@ require_once('inc/head.php');
           <div class="portfolio-main mt-5">
             <h6 class="ml-3" style="font-weight: 600">Portfolios</h6>
             <div class="portfolio-cont">
-              <div class="box">
-                <div class="img" style="background:url(/img/portfolio_img/1.jpeg); background-size:cover;"></div>
+              <?php 
+               $port_query = mysqli_query($conn, "SELECT * FROM portfolio_tbl");
 
+               while($res = mysqli_fetch_assoc($port_query)){?>
+              <div class="box">
+                <div class="img" style="background:url('img/portfolio_img/<?php echo $res['img']; ?>'); background-size:cover;"></div>
+                <?php 
+                    $dbdate = strtotime($res['reg_date']);  
+                    $info = getdate(date($dbdate));
+                    $mth = $info['month'];
+                    $day = $info['wday'];
+                    $yr = $info['year'];
+
+                    $formated = $day.", ".$mth." ".$yr;
+                ?>
                 <div class="date-cont">
-                  <small class="date">12 March, 2020</small>
+                  <small class="date"><?php echo $formated; ?></small>
                 </div>
 
                 <div class="title-cont">
-                  <p class="title">Chat Application</p>
+                  <p class="title"><?php echo $res['title']; ?></p>
                 </div>
                 <div class="footer">
-                  <a href="#" class="readmore">READ MORE ></a>
+                  <a href="readmore.php?pstid=<?php echo $id; ?>" class="readmore">READ MORE ></a>
                 </div>
               </div>
-              <div class="box">
-                <div class="img" style="background:url(/img/portfolio_img/1.jpeg); background-size:cover;"></div>
-
-                <div class="date-cont">
-                  <small class="date">12 March, 2020</small>
-                </div>
-
-                <div class="title-cont">
-                  <p class="title">Chat Application</p>
-                </div>
-                <div class="footer">
-                  <a href="#" class="readmore">READ MORE ></a>
-                </div>
-              </div>
-              <div class="box">
-                <div class="img" style="background:url(/img/portfolio_img/1.jpeg); background-size:cover;"></div>
-
-                <div class="date-cont">
-                  <small class="date">12 March, 2020</small>
-                </div>
-
-                <div class="title-cont">
-                  <p class="title">Chat Application</p>
-                </div>
-                <div class="footer">
-                  <a href="#" class="readmore">READ MORE ></a>
-                </div>
-              </div>
+              <?php }?>
               <div class="empty"></div>
             </div>
-            <a href="#" class="more-info ml-4">See More</a>
+            <a href="portfolio.php" class="more-info ml-4">See More</a>
           </div>
           <br>
           <br>
