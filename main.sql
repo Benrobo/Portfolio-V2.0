@@ -34,8 +34,8 @@ CREATE TABLE `admin_profile` (
   `id` int(6) UNSIGNED NOT NULL,
   `username` text NOT NULL,
   `contents` text DEFAULT NULL,
-  `img` varchar(30) NOT NULL,
-  `pwd` int(50) DEFAULT NULL,
+  `img` text NOT NULL,
+  `pwd` text DEFAULT NULL,
   `reg_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -77,7 +77,7 @@ CREATE TABLE `portfolio_tbl` (
 
 CREATE TABLE `skills_tbl` (
   `id` int(6) UNSIGNED NOT NULL,
-  `img` varchar(30) NOT NULL,
+  `img` text NOT NULL,
   `reg_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

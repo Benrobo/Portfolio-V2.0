@@ -302,7 +302,7 @@ require_once('inc/head.php');
                   <p class="title"><?php echo $res['title']; ?></p>
                 </div>
                 <div class="footer">
-                  <a href="readmore.php?pstid=<?php echo $id; ?>" class="readmore">READ MORE ></a>
+                  <a href="readmore.php?pstid=<?php echo $res['id']; ?>" class="readmore">READ MORE ></a>
                 </div>
               </div>
               <?php }?>
