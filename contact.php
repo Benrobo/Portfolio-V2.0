@@ -15,7 +15,7 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['msg'])){
     $mail = new PHPMailer(true);
 
     //Server settings
-    $to = "youremail address";
+    $to = "alumonabenaiah71@gmail.com";
     $mail->IsSMTP();
     $mail->Mailer = "smtp";
     // $mail->SMTPDebug  = 1;  
@@ -23,9 +23,9 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['msg'])){
     $mail->SMTPSecure = "tls";
     $mail->Port       = 25;
     $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "youremail address";
+    $mail->Username   = "alumonabenaiah71@gmail.com";
     $mail->isHTML(true); 
-    $mail->Password = "your address";
+    $mail->Password = "benrobo-tut71";
     $mail->From = $email;
     $mail->FromName = $name;
     $mail->addAddress($to);
@@ -57,18 +57,18 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['msg'])){
         </head>
         <body>
             
-            <div class="card">
+            <div class="card" style="background: #fff; width: 300px;margin:50px auto;box-shadow:0px 0px 10px #000;padding:12px;border-radius:2px; color:#000;">
                 <div class="card-header">
-                    <h5>Contact Form Request</h5>
-                    <small>From: '.$name.'</small>
+                    <h1>Contact Form Request</h1>
+                    <p>From: '.$name.'</p>
                 </div>
                 <div class="card-body">
-                    <p>
+                    <h3 style="font-size: 15px;">
                         '.$msg.'
-                    </p>
+                    </h3>
                 </div>
-                <div class="card-footer">
-                    <a href="benrobo-port.ml" class="btn btn-primary">Visit Site</a>
+                <div class="card-footer" style="margin-top:20px;">
+                    <a href="benrobo-port.ml" style="padding:10px 15px;background:#000; border:3px solid yellow; text-decoration:none; font-size:13px; font-weight:500; text-align:center; color:#fff; border-radius:30px; margin:10px auto;" class="btn btn-primary">Visit Site</a>
                 </div>
             </div>
         </body>
