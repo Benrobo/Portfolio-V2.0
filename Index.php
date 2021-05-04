@@ -1,4 +1,12 @@
-<?php require_once('inc/head.php');?>
+<?php 
+require_once('inc/head.php');
+?>
+<?php 
+  require("admin-dash/logic/dbh/db.php");
+
+  $query = mysqli_query($conn, "SELECT * FROM feedbacks");
+  $count = mysqli_num_rows($query);
+?>
 
 <?php require_once('inc/top-nav.php');?>
 
@@ -257,28 +265,33 @@
           <!-- recomendation -->
           <div class="recomendations mt-4">
             <h6 class="ml-3" style="font-weight: 600">Recommendations</h6>
-            <div class="rec-cont">
-              <div class="rec-card">
-                <div class="head mb-4">
-                  <span class="rec-name">John Doe</span>
-                  <span class="field">Software Developer</span>
-                </div>
-                <div class="body">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Sunt porro ipsa, tempora dolore atque impedit.
-                  </p>
-                </div>
-                <div class="ratings">
-                  <div class="rat">
-                    <span class="rating-count">5</span>
-                    <span class="rating-icon"
-                      ><ion-icon name="star"></ion-icon
-                    ></span>
+            <?php if($count > 0){?>
+              <?php while($data = mysqli_fetch_assoc($query)){?>
+              <div class="rec-cont">
+                <div class="rec-card">
+                  <div class="head mb-4">
+                    <span class="rec-name"><?php echo $data['username']; ?></span>
+                    <span class="field"><?php echo $data['professions']; ?></span>
+                  </div>
+                  <div class="body">
+                    <p>
+                    <?php echo $data['comments']; ?>
+                    </p>
+                  </div>
+                  <div class="ratings">
+                    <div class="rat">
+                      <span class="rating-count"><?php echo $data['ratings']; ?></span>
+                      <span class="rating-icon"
+                        ><ion-icon name="star"></ion-icon
+                      ></span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            <?php }?>
+            <?php }else{?>
+              <h5>No recommendation yet. feel up recommendation form <a href="testimonial/">Here</a></h5>
+            <?php }?>
           </div>
 
           <!-- portfolio main -->
