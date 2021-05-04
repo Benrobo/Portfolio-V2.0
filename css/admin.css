@@ -100,8 +100,16 @@ label small {
   color: #fff;
   outline: none !important;
   margin: 12px auto;
+  word-wrap: break-word;
 }
+.post-tables .table tr td p{
+  word-wrap: break-word;
+  font-size: 12px;
+}
+.post-tables .table tr td .comments{
+  width:200px;
 
+}
 .admin-info .main-info {
   display: flex;
   width: 100%;

@@ -142,7 +142,7 @@ if(isset($_COOKIE['EML'])){
                           <ion-icon name="pencil-outline"></ion-icon>
                         </small></a>
                         <input type="hidden" value="<?php echo $data['id']; ?>" id="postid">
-                      <a href="" class="text-danger delbtn" title="Delete Post"><small>
+                      <a href="logic/del.php?uuid=<?php echo $data['id'];?>" class="text-danger delbtn" title="Delete Post"><small>
                           <ion-icon name="trash-outline"></ion-icon>
                         </small></a>
                     </div>
@@ -162,7 +162,7 @@ if(isset($_COOKIE['EML'])){
       <div class="post-tables">
         <h3>Testimonial Data</h3>
         <div class="table-cont">
-          <table class="table">
+          <table class="table" style="word-wrap:break-word;">
             <thead>
               <tr>
                 <th>ID</th>
@@ -181,18 +181,18 @@ if(isset($_COOKIE['EML'])){
                 if($num > 0){?>
                 <?php while($data = mysqli_fetch_assoc($query)){?>
                 <tr>
-                  <td><small><?php echo ++$i;?></small></td>
-                  <td><small><?php echo $data['username']; ?></small></td>
-                  <td><small><?php echo $data['professions']; ?></small></td>
-                  <td><small><?php echo $data['ratings']; ?></small></td>
-                  <td><small><?php echo $data['comments']; ?></small></td>
+                  <td><p><?php echo ++$i;?></p></td>
+                  <td><p><?php echo $data['username']; ?></p></td>
+                  <td><p><?php echo $data['professions']; ?></p></td>
+                  <td><p><?php echo $data['ratings']; ?></p></td>
+                  <td><p class="comments"><?php echo $data['comments']; ?></p></td>
                   <td>
                     <div class="actions">
                       <a href="../testimonial.php/index.php?uuid=<?php echo $data['id']; ?>" class="text-success" title="Edit Post"><small>
                           <ion-icon name="pencil-outline"></ion-icon>
                         </small></a>
                         <input type="hidden" value="<?php echo $data['id']; ?>" id="testid">
-                      <a href="" class="text-danger deltestbtn" title="Delete Post"><small>
+                      <a href="logic/testdel.php?uuid=<?php echo $data['id'];?>&type=feedback" class="text-danger deltestbtn" title="Delete Post"><small>
                           <ion-icon name="trash-outline"></ion-icon>
                         </small></a>
                     </div>
@@ -242,54 +242,5 @@ if(isset($_COOKIE['EML'])){
 
   <script>
     
-    function deletePost(){
-      let delbtn = document.querySelectorAll(".delbtn");
-      let postid = document.querySelector("#postid").value
-      if(delbtn.length > 1){
-        for (let i = 0; i < delbtn.length; i++) {
-          delbtn[i].addEventListener("click",(e)=>{
-            e.preventDefault();
-            let cnfirm = confirm("Are you sure you want to delete this post?");
-            if(cnfirm == true){
-              window.location = `logic/del.php?uuid=${postid}`;
-            }
-          });
-        }
-      }else{
-        delbtn[0].addEventListener("click",(e)=>{
-          e.preventDefault();
-          let cnfirm = confirm("Are you sure you want to delete this post?");
-          if(cnfirm == true){
-            window.location = `logic/del.php?uuid=${postid}`;
-          }
-        });
-      }
-    }
-    deletePost()
-
-    function deleteTestimonial(){
-      let delbtn = document.querySelectorAll(".deltestbtn");
-      let testid = document.querySelector("#testid").value
-      if(delbtn.length > 1){
-        for (let i = 0; i < delbtn.length; i++) {
-          delbtn[i].addEventListener("click",(e)=>{
-            e.preventDefault();
-            let cnfirm = confirm("Are you sure you want to delete this feedback?");
-            if(cnfirm == true){
-              window.location = `logic/del.php?uuid=${testid}`;
-            }
-          });
-        }
-      }else{
-        delbtn[0].addEventListener("click",(e)=>{
-          e.preventDefault();
-          let cnfirm = confirm("Are you sure you want to delete this feedback?");
-          if(cnfirm == true){
-            window.location = `logic/del.php?uuid=${testid}`;
-          }
-        });
-      }
-    }
-    deleteTestimonial()
   </script>
 <?php require("inc/footer.php");?>

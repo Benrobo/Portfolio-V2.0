@@ -515,6 +515,7 @@ transition:.3s;
 .main-column .portfolio-area .recomendations .rec-card .body{
   font-size:14px;
   color:#777;
+  word-wrap: break-word;
 }
 
 .main-column .portfolio-area .recomendations .rec-card .ratings{
