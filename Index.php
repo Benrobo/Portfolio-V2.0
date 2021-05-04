@@ -265,9 +265,9 @@ require_once('inc/head.php');
           <!-- recomendation -->
           <div class="recomendations mt-4">
             <h6 class="ml-3" style="font-weight: 600">Recommendations</h6>
+            <div class="rec-cont">
             <?php if($count > 0){?>
               <?php while($data = mysqli_fetch_assoc($query)){?>
-              <div class="rec-cont">
                 <div class="rec-card">
                   <div class="head mb-4">
                     <span class="rec-name"><?php echo $data['username']; ?></span>
@@ -287,7 +287,6 @@ require_once('inc/head.php');
                     </div>
                   </div>
                 </div>
-              </div>
             <?php }?>
             <?php }else{?>
               <h5>No recommendation yet. feel up recommendation form <a href="testimonial/">Here</a></h5>

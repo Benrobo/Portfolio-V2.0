@@ -471,10 +471,14 @@ a {
 .main-column .portfolio-area .recomendations .rec-cont{
   padding:12px;
   display:grid;
-  grid-template-columns:repeat(10, auto);
+  grid-template-columns:repeat(1000, auto);
   margin:0px auto;
+  width: 100%;
+  overflow-x: scroll;
 }
-
+.main-column .portfolio-area .recomendations .rec-cont::-webkit-scrollbar{
+  display: none;
+}
 .main-column .portfolio-area .recomendations .rec-card{
   width:300px;
   height:auto;
