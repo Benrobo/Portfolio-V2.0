@@ -317,20 +317,21 @@ require_once('inc/head.php');
           <div class="contact-cont">
             <h6 class="ml-3" style="font-weight: 600">Get in touch.</h6>
             <div class="form-cont">
-              <form action="#" class="ml-3 input-groups">
+              <form class="ml-3 input-groups">
                 <div class="input-groups">
                   <div class="left-icon"><ion-icon name="person-add-outline"></ion-icon></div>
-                  <input type="text" placeholder="Name" class="inputs">
+                  <input type="text" placeholder="Name" class="inputs username">
                 </div>
                 <div class="input-groups">
                   <div class="left-icon"><ion-icon name="mail-outline"></ion-icon></div>
-                  <input type="email" placeholder="Name" class="inputs">
+                  <input type="email" placeholder="Email" class="inputs email">
                 </div>
                 <div class="input-groups">
                   <div class="left-icon"><ion-icon name="archive-outline"></ion-icon></div>
-                  <textarea name="" placeholder="Message" id=""  class="inputs"></textarea>
+                  <textarea name="" placeholder="Message" id=""  class="inputs message"></textarea>
                 </div>
-                <input type="submit" value="Send Message" class="submit-btn ml-3">
+                <button class="submit-btn ml-3">Send Message</button>
+                <!-- <input type="button" value="Send Message" class="submit-btn ml-3"> -->
               </form>
             </div>
           </div>
@@ -352,5 +353,129 @@ require_once('inc/head.php');
   <?php require_once('inc/right-nav.php');?>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script>
+      function sendmail(){
+        let name = document.querySelector('.username');
+        let email = document.querySelector('.email');
+        let msg = document.querySelector('.message');
+        let sendbtn = document.querySelector('.submit-btn');
+        const regexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+        
+        sendbtn.addEventListener("click" , (e)=>{
+          e.preventDefault()
+          if(name.value === "" || email.value === "" || msg.value === ""){
+            emptyFunc();
+          }else if(!email.value.match(regexp)){
+            emailFunc()
+          }
+          else if(msg.value.length > 100){
+            msgFunc()
+          }
+          else{
+            $.ajax({
+              url: "contact.php",
+              method: "POST",
+              // dataType: "text",
+              data: {
+                name: name.value,
+                email: email.value,
+                msg: msg.value,
+              },
+              success: function(data){
+                console.log(data);
+                return false;
+                if(data == "success"){
+                  successmsg();
+                  console.log(data);
+                }
+                else if(data == "error"){
+                  errormsg();
+                  console.log(data);
+                }
+              }
+            })
+          }
+        });
+      }
+      sendmail()
+
+      // Messagea alert popup functions
+      function successmsg(){
+        swal({
+              title: 'Congratulations!',
+              text: 'You entered the correct answer',
+              type: 'success',
+                button: {
+                text: "Continue",
+                value: true,
+                visible: true,
+                className: "btn btn-primary"
+              }
+            })
+      }
+      function errormsg(){
+        swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href>Why do I have this issue?</a>',
+          type: 'error',
+          button: {
+            text: "Continue",
+            value: true,
+            visible: true,
+            className: "btn btn-primary"
+          }
+        })
+      }
+      function emptyFunc(){
+        swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Fields cannot be empty!',
+          footer: '<a href>Why do I have this issue?</a>',
+          type: 'error',
+          button: {
+            text: "Continue",
+            value: true,
+            visible: true,
+            className: "btn btn-primary"
+          }
+        })
+      }
+      function emailFunc(){
+        swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Email given is invalid',
+          footer: '<a href>Why do I have this issue?</a>',
+          type: 'error',
+          button: {
+            text: "Continue",
+            value: true,
+            visible: true,
+            className: "btn btn-primary"
+          }
+        })
+      }
+      function msgFunc(){
+        swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Comments length must be equal to 100',
+          footer: '<a href>Why do I have this issue?</a>',
+          type: 'error',
+          button: {
+            text: "Continue",
+            value: true,
+            visible: true,
+            className: "btn btn-primary"
+          }
+        })
+      }
+    </script>
   <?php require_once('inc/footer.php');?>
