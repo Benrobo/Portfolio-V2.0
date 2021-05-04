@@ -68,15 +68,15 @@ if(isset($_COOKIE['EML'])){
       <br>
       <br>
       <div class="admin-info">
-      <?php if(isset($_GET['err_profile'])){?>
-        <div class="alert alert-danger"><?php echo mysqli_real_escape_string($conn, $_GET['err_profile'])?></div>
-      <?php }else if(isset($_GET['success_profile'])){?>
-        <div class="alert alert-success"><?php echo mysqli_real_escape_string($conn, $_GET['success_profile'])?></div>
-      <?php }else if(isset($_GET['err_img'])){?>
-        <div class="alert alert-danger"><?php echo mysqli_real_escape_string($conn, $_GET['err_img'])?></div>
-      <?php }else if(isset($_GET['succ_img'])){?>
-        <div class="alert alert-success"><?php echo mysqli_real_escape_string($conn, $_GET['succ_img'])?></div>
-      <?php }?>
+        <?php if(isset($_GET['err_profile'])){?>
+          <div class="alert alert-danger"><?php echo mysqli_real_escape_string($conn, $_GET['err_profile'])?></div>
+        <?php }else if(isset($_GET['success_profile'])){?>
+          <div class="alert alert-success"><?php echo mysqli_real_escape_string($conn, $_GET['success_profile'])?></div>
+        <?php }else if(isset($_GET['err_img'])){?>
+          <div class="alert alert-danger"><?php echo mysqli_real_escape_string($conn, $_GET['err_img'])?></div>
+        <?php }else if(isset($_GET['succ_img'])){?>
+          <div class="alert alert-success"><?php echo mysqli_real_escape_string($conn, $_GET['succ_img'])?></div>
+        <?php }?>
         <div class="main-info">
         <?php if($num > 0){?>
           <?php ?>
@@ -158,7 +158,54 @@ if(isset($_COOKIE['EML'])){
       </div>
       <br>
       <br>
-
+       <!-- posts table -->
+      <div class="post-tables">
+        <h3>Testimonial Data</h3>
+        <div class="table-cont">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Professsion</th>
+                <th>Ratings</th>
+                <th>Comments</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php 
+                $query = mysqli_query($conn, "SELECT * FROM feedbacks");
+                $num = mysqli_num_rows($query);
+                $i = 0;
+                if($num > 0){?>
+                <?php while($data = mysqli_fetch_assoc($query)){?>
+                <tr>
+                  <td><small><?php echo ++$i;?></small></td>
+                  <td><small><?php echo $data['username']; ?></small></td>
+                  <td><small><?php echo $data['professions']; ?></small></td>
+                  <td><small><?php echo $data['ratings']; ?></small></td>
+                  <td><small><?php echo $data['comments']; ?></small></td>
+                  <td>
+                    <div class="actions">
+                      <a href="addpost.php?uuid=<?php echo $data['id']; ?>" class="text-success" title="Edit Post"><small>
+                          <ion-icon name="pencil-outline"></ion-icon>
+                        </small></a>
+                        <input type="hidden" value="<?php echo $data['id']; ?>" id="testid">
+                      <a href="" class="text-danger delbtn" title="Delete Post"><small>
+                          <ion-icon name="trash-outline"></ion-icon>
+                        </small></a>
+                    </div>
+                  </td>
+                </tr>
+              <?php }?>
+              <?php }else{?>
+                <h6>No data Available</h6>
+              <?php }?>
+            </tbody>
+          </table>
+        </div>
+      </div>         
       <!-- user info modal -->
       <!-- line modal -->
       <div class="modal-cont">
