@@ -320,7 +320,7 @@ require_once('inc/head.php');
               <form class="ml-3 input-groups">
                 <div class="input-groups">
                   <div class="left-icon"><ion-icon name="person-add-outline"></ion-icon></div>
-                  <input type="text" placeholder="Name" class="inputs username">
+                  <input type="text" placeholder="Name" class="inputs name">
                 </div>
                 <div class="input-groups">
                   <div class="left-icon"><ion-icon name="mail-outline"></ion-icon></div>
@@ -357,8 +357,11 @@ require_once('inc/head.php');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <script>
+      window.addEventListener("DOMContentLoaded", (e)=>{
+        sendmail();
+      })
       function sendmail(){
-        let name = document.querySelector('.username');
+        let name = document.querySelector('.name');
         let email = document.querySelector('.email');
         let msg = document.querySelector('.message');
         let sendbtn = document.querySelector('.submit-btn');
@@ -379,29 +382,25 @@ require_once('inc/head.php');
             $.ajax({
               url: "contact.php",
               method: "POST",
-              // dataType: "text",
+              dataType: "text",
               data: {
                 name: name.value,
                 email: email.value,
-                msg: msg.value,
+                msg: msg.value
               },
               success: function(data){
-                console.log(data);
-                return false;
                 if(data == "success"){
                   successmsg();
-                  console.log(data);
                 }
                 else if(data == "error"){
                   errormsg();
-                  console.log(data);
                 }
               }
             })
           }
         });
       }
-      sendmail()
+      
 
       // Messagea alert popup functions
       function successmsg(){
