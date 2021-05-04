@@ -188,11 +188,11 @@ if(isset($_COOKIE['EML'])){
                   <td><small><?php echo $data['comments']; ?></small></td>
                   <td>
                     <div class="actions">
-                      <a href="addpost.php?uuid=<?php echo $data['id']; ?>" class="text-success" title="Edit Post"><small>
+                      <a href="../testimonial.php/index.php?uuid=<?php echo $data['id']; ?>" class="text-success" title="Edit Post"><small>
                           <ion-icon name="pencil-outline"></ion-icon>
                         </small></a>
                         <input type="hidden" value="<?php echo $data['id']; ?>" id="testid">
-                      <a href="" class="text-danger delbtn" title="Delete Post"><small>
+                      <a href="" class="text-danger deltestbtn" title="Delete Post"><small>
                           <ion-icon name="trash-outline"></ion-icon>
                         </small></a>
                     </div>
@@ -205,7 +205,9 @@ if(isset($_COOKIE['EML'])){
             </tbody>
           </table>
         </div>
-      </div>         
+      </div>  
+      <br>       
+      <br>       
       <!-- user info modal -->
       <!-- line modal -->
       <div class="modal-cont">
@@ -264,5 +266,30 @@ if(isset($_COOKIE['EML'])){
       }
     }
     deletePost()
+
+    function deleteTestimonial(){
+      let delbtn = document.querySelectorAll(".deltestbtn");
+      let testid = document.querySelector("#testid").value
+      if(delbtn.length > 1){
+        for (let i = 0; i < delbtn.length; i++) {
+          delbtn[i].addEventListener("click",(e)=>{
+            e.preventDefault();
+            let cnfirm = confirm("Are you sure you want to delete this feedback?");
+            if(cnfirm == true){
+              window.location = `logic/del.php?uuid=${testid}`;
+            }
+          });
+        }
+      }else{
+        delbtn[0].addEventListener("click",(e)=>{
+          e.preventDefault();
+          let cnfirm = confirm("Are you sure you want to delete this feedback?");
+          if(cnfirm == true){
+            window.location = `logic/del.php?uuid=${testid}`;
+          }
+        });
+      }
+    }
+    deleteTestimonial()
   </script>
 <?php require("inc/footer.php");?>
