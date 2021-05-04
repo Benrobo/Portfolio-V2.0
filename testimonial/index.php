@@ -40,36 +40,37 @@
     </div>
     <div class="container">
         <div class="login-cont">
-           <form action="testimonial.php" method="post" class="form-group">
-               <h5>Leave a feedback</h5>
-               <?php if(isset($_GET['err'])){?>
-                    <div class="alert alert-danger"><?php echo $_GET['err'] ?></div>
-                <?php }else if(isset($_GET['succ'])){?>
-                    <div class="alert alert-success"><?php echo $_GET['succ'] ?></div>
-                    <?php 
-                        header("Refresh:2; url=../index.php");
-                    ?>
-                <?php }?>
-               <label>Full Name</label>
-               <input type="text" name="username" class="form-control mt-1">
-               <label>Profession</label>
-               <input type="text" name="profession" class="form-control mt-1">
-               <label>Ratings</label>
-               <select name="ratings" id="" class="form-control">
-                   <option value="">Ratings</option>
-                   <option value="1">1</option>
-                   <option value="2">2</option>
-                   <option value="3">3</option>
-                   <option value="4">4</option>
-                   <option value="5">5</option>
-               </select>
-               <label>Comments</label>
-               <textarea name="comment" cols="30" rows="5" class="form-control mt-1"></textarea>
-               <div class="footer mt-2">
-                    <input type="submit" value="Send Feedback" name="submit" class="btn btn-primary">
-                    <a href="../" class="btn btn-danger">Cancel</a>
-               </div>
-           </form> 
+            <form action="testimonial.php" method="post" class="form-group">
+                <h5>Leave a feedback</h5>
+                <?php if(isset($_GET['err'])){?>
+                        <div class="alert alert-danger"><?php echo $_GET['err'] ?></div>
+                    <?php }else if(isset($_GET['succ'])){?>
+                        <div class="alert alert-success"><?php echo $_GET['succ'] ?></div>
+                        <?php 
+                            header("Refresh:2; url=../index.php");
+                        ?>
+                    <?php }?>
+                <label>Full Name</label>
+                <input type="text" name="username" class="form-control mt-1">
+                <label>Profession</label>
+                <input type="text" name="profession" class="form-control mt-1">
+                <label>Ratings</label>
+                <select name="ratings" id="" class="form-control">
+                    <option value="">Ratings</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <label>Comments</label>
+                <textarea name="comment" cols="30" rows="5" class="form-control mt-1"></textarea>
+                <div class="footer mt-2">
+                        <input type="submit" value="Send Feedback" name="submit" class="btn btn-primary">
+                        <a href="../" class="btn btn-danger">Cancel</a>
+                </div>
+            </form> 
+           <br>
         </div>
     </div>
 

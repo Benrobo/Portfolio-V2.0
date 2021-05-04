@@ -35,19 +35,13 @@ if(isset($_COOKIE['EML'])){
             <div class="float-right text">
               <label>Posts</label>
               <br>
-              <h3>43</h3>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="clear-fix">
-            <div class="float-left icon">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-            <div class="float-right text">
-              <label>Views</label>
-              <br>
-              <h3>43</h3>
+              <h3>
+                <?php 
+                  $query = mysqli_query($conn, " SELECT * FROM portfolio_tbl");
+                  $count = mysqli_num_rows($query);
+                  echo $count;
+                ?>
+              </h3>
             </div>
           </div>
         </div>
@@ -59,7 +53,13 @@ if(isset($_COOKIE['EML'])){
             <div class="float-right text">
               <label>Likes</label>
               <br>
-              <h3>43</h3>
+              <h3>
+              <?php 
+                  $query = mysqli_query($conn, " SELECT * FROM like_tbl");
+                  $count = mysqli_num_rows($query);
+                  echo $count;
+                ?>
+              </h3>
             </div>
           </div>
         </div>
@@ -158,7 +158,7 @@ if(isset($_COOKIE['EML'])){
       </div>
       <br>
       <br>
-       <!-- posts table -->
+       <!-- feedback table -->
       <div class="post-tables">
         <h3>Testimonial Data</h3>
         <div class="table-cont">
@@ -188,10 +188,6 @@ if(isset($_COOKIE['EML'])){
                   <td><p class="comments"><?php echo $data['comments']; ?></p></td>
                   <td>
                     <div class="actions">
-                      <a href="../testimonial.php/index.php?uuid=<?php echo $data['id']; ?>" class="text-success" title="Edit Post"><small>
-                          <ion-icon name="pencil-outline"></ion-icon>
-                        </small></a>
-                        <input type="hidden" value="<?php echo $data['id']; ?>" id="testid">
                       <a href="logic/testdel.php?uuid=<?php echo $data['id'];?>&type=feedback" class="text-danger deltestbtn" title="Delete Post"><small>
                           <ion-icon name="trash-outline"></ion-icon>
                         </small></a>
@@ -241,6 +237,6 @@ if(isset($_COOKIE['EML'])){
   </div>
 
   <script>
-    
+  
   </script>
 <?php require("inc/footer.php");?>
