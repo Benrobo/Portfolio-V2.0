@@ -197,7 +197,7 @@
                     Like what i do. why not discuss your project with me and see
                     it come into reality.
                   </p>
-                  <a href="index.html#contact" class="contact-btn"
+                  <a href="index.php#contact" class="contact-btn"
                     >Contact Me</a
                   >
                 </div>

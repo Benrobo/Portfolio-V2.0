@@ -406,7 +406,7 @@ require_once('inc/head.php');
       function successmsg(){
         swal({
               title: 'Congratulations!',
-              text: 'You entered the correct answer',
+              text: 'Message successfully sent, i get ba ck to you as soon as possible.',
               type: 'success',
                 button: {
                 text: "Continue",
