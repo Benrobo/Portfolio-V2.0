@@ -353,6 +353,28 @@ require_once('inc/head.php');
   <?php require_once('inc/right-nav.php');?>
     </div>
 
+    <div class="loader"
+      style="
+        width:100%;
+        height:100vh;
+        position:fixed;
+        top:0px;
+        left:0px;
+        background:rgba(0,0,0,.9);
+        display:flex;
+        align-items:center;
+        justify-content:center;  
+        flex-direction:column; 
+        color:#fff; 
+        display:none;     
+      "
+    >
+      
+      <img src="https://media.giphy.com/media/VseXvvxwowwCc/giphy.gif" alt="" class="loader-img" style="width:30%;">
+      <p class="">Loading...</p>
+
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
@@ -361,6 +383,7 @@ require_once('inc/head.php');
         sendmail();
       })
       function sendmail(){
+        let loader = document.querySelector(".loader")
         let name = document.querySelector('.name');
         let email = document.querySelector('.email');
         let msg = document.querySelector('.message');
@@ -379,24 +402,26 @@ require_once('inc/head.php');
             msgFunc()
           }
           else{
-            $.ajax({
-              url: "contact.php",
-              method: "POST",
-              dataType: "text",
-              data: {
-                name: name.value,
-                email: email.value,
-                msg: msg.value
-              },
-              success: function(data){
-                if(data == "success"){
-                  successmsg();
+              loader.style.display = "flex";
+              $.ajax({
+                url: "contact.php",
+                method: "POST",
+                dataType: "text",
+                data: {
+                  name: name.value,
+                  email: email.value,
+                  msg: msg.value
+                },
+                success: function(data){
+                  if(data == "success"){
+                    successmsg();
+                    loader.style.display = "none";
+                  }
+                  else if(data == "error"){
+                    errormsg();
+                  }
                 }
-                else if(data == "error"){
-                  errormsg();
-                }
-              }
-            })
+              })
           }
         });
       }
