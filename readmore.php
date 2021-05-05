@@ -47,11 +47,6 @@ else{
             <?php echo $data['contents'];?>
             </div>
             <br>
-            <div class="reaction-cont">
-                <input type="hidden" value="<?php echo $data['id'];?>" class="id">
-                <button class="like-btn"><ion-icon name="thumbs-up-outline"></ion-icon><sup><span class="badge badge-warning ml-1">12</span></sup></button>
-                
-            </div>
         </div>
     </div>
 
@@ -59,33 +54,5 @@ else{
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-    <script>
-        window.addEventListener("DOMContentLoaded", ()=>{
-            like()
-        })
-            
-        function like(){
-            let reactbtn = document.querySelector(".like-btn");
-            let val = document.querySelector(".id");
-            reactbtn.addEventListener("click", (e)=>{
-                makeCall(val.value)
-            })
-        }
-
-        function makeCall(val){
-            $.ajax({
-                url:"insertlike.php",
-                method: "POST",
-                dataType: "text",
-                data:{
-                    postid:val 
-                },
-                success:(data)=>{
-                    console.log(data);
-                }
-            })
-        }
-       
-    </script>
   </body>
 </html>
