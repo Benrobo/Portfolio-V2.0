@@ -26,7 +26,8 @@ Complete Portfolio Website with Bootstrap - HTML/CSS In this project, we are goi
 --✅✅ Add Img functionality
 --✅✅ Display Post in table form from database functionality
 --✅✅ Edit & Delete Posts
-
+--✅✅ Feedback system
+--✅✅ Mail Sending
 
 
 ### Database Design
@@ -59,3 +60,13 @@ Complete Portfolio Website with Bootstrap - HTML/CSS In this project, we are goi
     -- ratings
     -- comments
 </pre>
+
+====================== Sending Mail ============
+--For you to be able to send email using php, i implemented the mail functionality using the PHPMailerw Library.
+
+All you have  to do is install the libary using the below command.
+<pre><code>
+    composer require phpmailer/phpmailer
+</code></pre>
+
+Note: Composer must be installed on your system to enablef this command work.
