@@ -15,7 +15,7 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['msg'])){
     $mail = new PHPMailer(true);
 
     //Server settings
-    $to = "alumonabenaiah71@gmail.com";
+    $to = "your email";
     $mail->IsSMTP();
     $mail->Mailer = "smtp";
     // $mail->SMTPDebug  = 1;  
@@ -25,7 +25,7 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['msg'])){
     $mail->Host       = "smtp.gmail.com";
     $mail->Username   = $to;
     $mail->isHTML(true); 
-    $mail->Password = "benrobo-tut71";
+    $mail->Password = "your password";
     $mail->From = $email;
     $mail->FromName = $name;
     $mail->addAddress($to);
