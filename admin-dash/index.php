@@ -45,24 +45,6 @@ if(isset($_COOKIE['EML'])){
             </div>
           </div>
         </div>
-        <div class="card">
-          <div class="clear-fix">
-            <div class="float-left icon">
-              <ion-icon name="happy-outline"></ion-icon>
-            </div>
-            <div class="float-right text">
-              <label>Likes</label>
-              <br>
-              <h3>
-              <?php 
-                  $query = mysqli_query($conn, " SELECT * FROM like_tbl");
-                  $count = mysqli_num_rows($query);
-                  echo $count;
-                ?>
-              </h3>
-            </div>
-          </div>
-        </div>
       </div>
 
       <br>
