@@ -92,6 +92,7 @@ Complete Portfolio Website with Bootstrap - HTML/CSS In this project, we are goi
 --For you to be able to send email using php, i implemented the mail functionality using the PHPMailerw Library.
 
 All you have  to do is install the libary using the below command.
+</br>
 <code>
     composer require phpmailer/phpmailer
 </code>
