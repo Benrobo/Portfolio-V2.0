@@ -24,23 +24,36 @@ Complete Portfolio Website with Bootstrap - HTML/CSS In this project, we are goi
 ### Functionlaities
 
 --✅✅ Add Post functionality
+
 --✅✅ Add User Authentication functionality
+
 --✅✅ Add Img functionality
+
 --✅✅ Display Post in table form from database functionality
+
 --✅✅ Edit & Delete Posts
+
 --✅✅ Feedback system
+
 --✅✅ Mail Sending
 
-### Testing
+### Third Party Library Used in this project.
 
 <table>
 <tr>
-    <th>Head</th>
-    <th>Head</th>
+    <th>s/n</th>
+    <th>name</th>
+    <th>Description</th>
 </tr>
 <tr>
-    <td>test1</td>
-    <td>test1</td>
+    <td>1</td>
+    <td>PHPMailer</td>
+    <td>PHPMailer's integrated SMTP client allows email sending on all platforms without needing a local mail server. </td>
+</tr>
+<tr>
+    <td>2</td>
+    <td>Sweet Alert. </td>
+    <td>A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAVASCRIPT'S POPUP BOXES ZERO DEPENDENCIES. </td>
 </tr>
 </table>
 
@@ -79,8 +92,8 @@ Complete Portfolio Website with Bootstrap - HTML/CSS In this project, we are goi
 --For you to be able to send email using php, i implemented the mail functionality using the PHPMailerw Library.
 
 All you have  to do is install the libary using the below command.
-<pre><code>
+<code>
     composer require phpmailer/phpmailer
-</code></pre>
+</code>
 
 Note: Composer must be installed on your system to enablef this command work.
